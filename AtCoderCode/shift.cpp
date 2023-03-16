@@ -1,4 +1,3 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -16,8 +15,9 @@ int main()
         v.push_back(t);
     }
 
-    for(int j = v.size(); j >=b-1; j--){
-        v[j] = 0;
+    for(int j = 0; j < b; j++){
+        v.erase(v.begin());
+        v.push_back(0);
     }
 
     for(int k=0; k < v.size(); k++){
