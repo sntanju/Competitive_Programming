@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -56,30 +55,29 @@ int main()
     ll t;
     cin >> t;
     while(t--){
-
-        ll sum = 0, multiply = 1, p = 0, m = 0;
-
         ll a;
-        cin >> a;
+        cin >>a;
+        vector<ll> v;
+
         for(ll i=0; i < a; i++){
             ll b;
             cin >> b;
-            if(b == 1) p++;
-            else m++;
-            sum+=b;
-            multiply*=b;
+            v.push_back(b);
         }
 
-        ll ans = 0;
+        sort(v.begin(), v.end());
+        ll ans = -1;
 
-        if(sum < 0){
-            if(a%2 == 0) ans = (ans/2)-p;
-            else ((ans/2)+1)-p;
+        for(ll i=0; i < a-2; i++){
+            if(v[i] == v[i+1] && v[i] == v[i+2]){
+                ans = v[i];
+                break;
+            }
         }
-        if(multiply == -1)ans++;
         cout << ans << endl;
 
     }
+
 
 
     return 0;

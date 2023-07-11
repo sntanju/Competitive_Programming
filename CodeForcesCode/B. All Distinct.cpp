@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -51,35 +50,32 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
+    /// Start
 
     ll t;
     cin >> t;
     while(t--){
-
-        ll sum = 0, multiply = 1, p = 0, m = 0;
-
         ll a;
         cin >> a;
-        for(ll i=0; i < a; i++){
+
+        vector<ll> v;
+
+        for(ll i=0; i< a; i++){
             ll b;
             cin >> b;
-            if(b == 1) p++;
-            else m++;
-            sum+=b;
-            multiply*=b;
+            v.push_back(b);
         }
 
-        ll ans = 0;
+        sort(v.begin(), v.end());
+        v.erase( unique( v.begin(), v.end() ), v.end() );
 
-        if(sum < 0){
-            if(a%2 == 0) ans = (ans/2)-p;
-            else ((ans/2)+1)-p;
-        }
-        if(multiply == -1)ans++;
-        cout << ans << endl;
+        ll x = a- v.size();
+
+        if(x % 2 == 0) cout << v.size() << endl;
+        else cout << v.size()-1 << endl;
 
     }
+
 
 
     return 0;

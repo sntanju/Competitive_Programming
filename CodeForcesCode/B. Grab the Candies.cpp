@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -55,31 +54,22 @@ int main()
 
     ll t;
     cin >> t;
+
     while(t--){
-
-        ll sum = 0, multiply = 1, p = 0, m = 0;
-
-        ll a;
+        ll a, pos = 0, neg = 0;
         cin >> a;
+
         for(ll i=0; i < a; i++){
             ll b;
             cin >> b;
-            if(b == 1) p++;
-            else m++;
-            sum+=b;
-            multiply*=b;
+            if(b%2 == 0) pos+=b;
+            else neg+=b;
         }
 
-        ll ans = 0;
-
-        if(sum < 0){
-            if(a%2 == 0) ans = (ans/2)-p;
-            else ((ans/2)+1)-p;
-        }
-        if(multiply == -1)ans++;
-        cout << ans << endl;
-
+        if(pos > neg) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
+
 
 
     return 0;

@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -56,30 +55,29 @@ int main()
     ll t;
     cin >> t;
     while(t--){
-
-        ll sum = 0, multiply = 1, p = 0, m = 0;
-
         ll a;
         cin >> a;
-        for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
-            sum+=b;
-            multiply*=b;
+        ll two = 0, three = 0, five = 0;
+
+        while(a%2 == 0){
+            a/=2;
+            two++;
+        }
+        while(a%3 == 0){
+            a/=3;
+            three++;
+        }
+        while(a%5 == 0){
+            a/=5;
+            five++;
         }
 
-        ll ans = 0;
-
-        if(sum < 0){
-            if(a%2 == 0) ans = (ans/2)-p;
-            else ((ans/2)+1)-p;
+        if(a != 1) cout << -1 << endl;
+        else{
+            cout << two + three*2 + five*3 << endl;
         }
-        if(multiply == -1)ans++;
-        cout << ans << endl;
-
     }
+
 
 
     return 0;

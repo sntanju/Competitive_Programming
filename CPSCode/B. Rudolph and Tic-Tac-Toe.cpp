@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -51,36 +50,31 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
 
     ll t;
     cin >> t;
     while(t--){
+        string a, b, c;
+        cin  >> a;
+        cin >> b;
+        cin >> c;
 
-        ll sum = 0, multiply = 1, p = 0, m = 0;
+        string x= "No", y = "No";
 
-        ll a;
-        cin >> a;
-        for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
-            sum+=b;
-            multiply*=b;
-        }
+        if(a[0] == a[2] && a[0] == a[2] && a[0] == 'X')x ="YES";
+        if(b[0] == b[2] && b[0] == b[2] && b[0] == 'X')x ="YES";
+        if(c[0] == c[2] && c[0] == c[2] && c[0] == 'X')x ="YES";
 
-        ll ans = 0;
+        if(a[1] == b[1] && c[1] == b[1] && c[1] == 'X')x ="YES";
+        if(a[1] == b[1] && c[1] == b[1] && c[1] == 'X')x ="YES";
+        if(a[1] == b[1] && c[1] == b[1] && c[1] == 'X')x ="YES";
 
-        if(sum < 0){
-            if(a%2 == 0) ans = (ans/2)-p;
-            else ((ans/2)+1)-p;
-        }
-        if(multiply == -1)ans++;
-        cout << ans << endl;
+
+        if(a[2] == b[2] && c[2] == b[2] && c[2] == 'X')x ="YES";
+        if(a[2] == b[2] && c[2] == b[2] && c[2] == 'X')x ="YES";
+        if(a[2] == b[2] && c[2] == b[2] && c[2] == 'X')x ="YES";
 
     }
-
 
     return 0;
 }

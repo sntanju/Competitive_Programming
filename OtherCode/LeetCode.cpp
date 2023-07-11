@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -53,34 +52,40 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
-
-        ll sum = 0, multiply = 1, p = 0, m = 0;
-
+    ll n;
+    cin >> n;
+    vector<ll> v;
+    for(ll i=0; i< n ;i++){
         ll a;
         cin >> a;
-        for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
-            sum+=b;
-            multiply*=b;
-        }
-
-        ll ans = 0;
-
-        if(sum < 0){
-            if(a%2 == 0) ans = (ans/2)-p;
-            else ((ans/2)+1)-p;
-        }
-        if(multiply == -1)ans++;
-        cout << ans << endl;
-
+        v.push_back(a);
     }
 
+    long long ans = 0, temp = 1;
 
+        for(long long i=1; i < v.size(); i++){
+            if(i%2 == 1){
+                if(v[i] == v[i+1]-1) temp++;
+                else{
+                    if(temp > ans){
+                        ans = temp;
+                    }
+                    temp = 1;
+                }
+            }
+
+            else{
+                if(v[i] == v[i+1]+1) temp++;
+                else{
+                    if(temp > ans){
+                        ans = temp;
+                    }
+                    temp = 1;
+                }
+            }
+        }
+
+
+    cout << ans << endl;
     return 0;
 }

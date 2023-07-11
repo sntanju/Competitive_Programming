@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -56,30 +55,20 @@ int main()
     ll t;
     cin >> t;
     while(t--){
+        ll n;
+        cin >> n;
+        ll even = 0, odd = 0;
 
-        ll sum = 0, multiply = 1, p = 0, m = 0;
-
-        ll a;
-        cin >> a;
-        for(ll i=0; i < a; i++){
+        for(ll i=0; i< n; i++){
             ll b;
             cin >> b;
-            if(b == 1) p++;
-            else m++;
-            sum+=b;
-            multiply*=b;
+            if(b%2 == 0) even++;
+            else odd++;
         }
 
-        ll ans = 0;
-
-        if(sum < 0){
-            if(a%2 == 0) ans = (ans/2)-p;
-            else ((ans/2)+1)-p;
-        }
-        if(multiply == -1)ans++;
-        cout << ans << endl;
-
+        cout << min(even, odd) << endl;
     }
+
 
 
     return 0;

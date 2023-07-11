@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -53,33 +52,20 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    ll n;
+    cin >> n;
+    ll z = n;
 
-        ll sum = 0, multiply = 1, p = 0, m = 0;
+    ll c = n%10;
+    n /= 10;
+    ll b = n%10;
+    n /= 10;
 
-        ll a;
-        cin >> a;
-        for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
-            sum+=b;
-            multiply*=b;
-        }
+    ll x = b*100+ c*10 + n;
+    ll y = c* 100 + n* 10 +b;
+    //cout << x << endl << y << endl << z << endl;
+    cout << x+y+z << endl;
 
-        ll ans = 0;
-
-        if(sum < 0){
-            if(a%2 == 0) ans = (ans/2)-p;
-            else ((ans/2)+1)-p;
-        }
-        if(multiply == -1)ans++;
-        cout << ans << endl;
-
-    }
 
 
     return 0;

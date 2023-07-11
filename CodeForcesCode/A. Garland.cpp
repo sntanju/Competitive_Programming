@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -56,30 +55,21 @@ int main()
     ll t;
     cin >> t;
     while(t--){
+        string s;
+        cin >> s;
 
-        ll sum = 0, multiply = 1, p = 0, m = 0;
+        sort(s.begin(), s.end());
+        ll ans;
 
-        ll a;
-        cin >> a;
-        for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
-            sum+=b;
-            multiply*=b;
-        }
-
-        ll ans = 0;
-
-        if(sum < 0){
-            if(a%2 == 0) ans = (ans/2)-p;
-            else ((ans/2)+1)-p;
-        }
-        if(multiply == -1)ans++;
+        if(s[0] == s[1] && s[0] == s[2] && s[2] == s[3]) ans = -1;
+        else if(s[0] == s[1] && s[0] == s[2] && s[0] != s[3]) ans = 6;
+        else if(s[1] == s[2] && s[1] == s[3] && s[0] != s[3]) ans = 6;
+        else ans = 4;
         cout << ans << endl;
 
+
     }
+
 
 
     return 0;
