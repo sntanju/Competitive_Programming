@@ -56,12 +56,33 @@ int main()
     cin >> t;
     while(t--){
         string a, b, c;
-        cin >> a;
+        cin  >> a;
         cin >> b;
         cin >> c;
+
+        vector<char> v = {'X', 'O', '+'};
+        char check = '?';
+
+        for(char x : v){
+            if(a[0] == x && a[1] == x && a[2] == x) check = x;
+            if(b[0] == x && b[1] == x && b[2] == x) check = x;
+            if(c[0] == x && c[1] == x && c[2] == x) check = x;
+
+
+            if(a[0] == x && b[0] == x && c[0] == x) check = x;
+            if(a[1] == x && b[1] == x && c[1] == x) check = x;
+            if(a[2] == x && b[2] == x && c[2] == x) check = x;
+
+
+            if(a[0] == x && b[1] == x && c[2] == x) check = x;
+            if(a[2] == x && b[1] == x && c[0] == x) check = x;
+
+        }
+
+        if(check == '?') cout << "DRAW" << endl;
+        else cout << check << endl;
+
     }
-
-
 
     return 0;
 }
