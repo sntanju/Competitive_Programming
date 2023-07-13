@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -57,27 +56,26 @@ int main()
     cin >> t;
     while(t--){
 
-        ll p = 0, m = 0;
+        string s;
+        cin >> s;
+        ll ans = 1;
 
-        ll a;
-        cin >> a;
-        for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
+        for(ll i = 0; i < s.size(); i++){
+
+            if(i == 0){
+                if(s[i] == '0') ans*=0;
+                else if(s[i] == '?') ans*= 9;
+                else ans *= 1;
+            }
+
+            else{
+                if(s[i] == '?') ans*=10;
+                else ans*=1;
+            }
         }
-
-        ll temp = m;
-        while(m>p || m%2==1){
-            m--;
-            p++;
-        }
-
-
-        cout << temp-m << endl;
-
+        cout << ans << endl;
     }
+
 
 
     return 0;

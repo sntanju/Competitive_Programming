@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -56,28 +55,12 @@ int main()
     ll t;
     cin >> t;
     while(t--){
+        ll a, b;
+        cin >> a >> b;
 
-        ll p = 0, m = 0;
-
-        ll a;
-        cin >> a;
-        for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
-        }
-
-        ll temp = m;
-        while(m>p || m%2==1){
-            m--;
-            p++;
-        }
-
-
-        cout << temp-m << endl;
-
+        cout << a+b << endl;
     }
+
 
 
     return 0;

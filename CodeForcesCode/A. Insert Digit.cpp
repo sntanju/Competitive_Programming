@@ -55,15 +55,21 @@ int main()
     ll t;
     cin >> t;
     while(t--){
+
         ll a, b;
         cin >> a >> b;
+
         string num;
         cin >> num;
         bool flag = false;
         string s;
+
         for(ll i=0; i < a; i++){
-            if( b+'0' >= num[i]){
+
+            if( b+'0' > num[i]){
+
                 if(flag == false){
+
                     s+= b+'0';
                     flag = true;
 
@@ -71,6 +77,7 @@ int main()
             }
             s+= num[i];
         }
+
         if(s.size() ==  num.size()) s+= b+'0';
         cout << s << endl;
 

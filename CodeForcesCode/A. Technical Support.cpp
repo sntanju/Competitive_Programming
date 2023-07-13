@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -56,28 +55,21 @@ int main()
     ll t;
     cin >> t;
     while(t--){
-
-        ll p = 0, m = 0;
-
         ll a;
         cin >> a;
+        string s;
+        cin >> s;
+
+        ll Q = 0;
         for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
+            if(s[i] == 'Q') Q++;
+            else if(Q>0) Q--;
         }
-
-        ll temp = m;
-        while(m>p || m%2==1){
-            m--;
-            p++;
-        }
-
-
-        cout << temp-m << endl;
+        if(Q == 0) cout << "YES" << endl;
+        else cout << "NO" << endl;
 
     }
+
 
 
     return 0;

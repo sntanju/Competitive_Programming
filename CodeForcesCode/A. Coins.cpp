@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -57,25 +56,13 @@ int main()
     cin >> t;
     while(t--){
 
-        ll p = 0, m = 0;
+        ll a, b, n = 2;
+        cin >> a >> b;
+        string ans = "YES";
 
-        ll a;
-        cin >> a;
-        for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
-        }
+        if(a%2 == 1 && b%2 == 0) ans = "NO";
 
-        ll temp = m;
-        while(m>p || m%2==1){
-            m--;
-            p++;
-        }
-
-
-        cout << temp-m << endl;
+        cout << ans << endl;
 
     }
 

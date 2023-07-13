@@ -1,5 +1,4 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -51,33 +50,21 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
+    /// Start
 
     ll t;
     cin >> t;
+    string str = "YesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYesYes";
     while(t--){
+        string s;
+        cin >> s;
 
-        ll p = 0, m = 0;
-
-        ll a;
-        cin >> a;
-        for(ll i=0; i < a; i++){
-            ll b;
-            cin >> b;
-            if(b == 1) p++;
-            else m++;
-        }
-
-        ll temp = m;
-        while(m>p || m%2==1){
-            m--;
-            p++;
-        }
-
-
-        cout << temp-m << endl;
+        size_t found = str.find(s);
+        if (found != string::npos) cout << "YES" << endl;
+        else cout << "NO" << endl;
 
     }
+
 
 
     return 0;
