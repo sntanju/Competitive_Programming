@@ -49,31 +49,44 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
 int main()
 {
-    optimize();
     ///Start
+    optimize();
 
     ll t;
     cin >> t;
     while(t--){
 
-        ll a;
-        cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
+        ll a, b;
+        cin >> a >> b;
 
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
-                }
-            }
+        vector<ll> v;
+
+        for(ll i = 0; i < a; i++){
+            ll x;
+            cin >> x;
+            v.push_back(x);
         }
 
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
+        sort(v.begin(), v.end());
+        ll cnt = 1, tt = 1;
+        //
+
+        for(ll i=0; i < a-1; i++){
+
+            ll temp = v[i+1] - v[i];
+            if(temp <= b) tt++;
+
+            else tt = 1;
+            cnt = max(cnt, tt);
+        }
+
+        //if(a==1) cout << 0 << endl;
+        cout << a-cnt << endl;
 
     }
+
+
+
 
     return 0;
 }

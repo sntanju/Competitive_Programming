@@ -1,7 +1,5 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
-
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -55,25 +53,15 @@ int main()
     ll t;
     cin >> t;
     while(t--){
+        ll a, b, c;
+        cin >> a >> b >> c;
 
-        ll a;
-        cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
-
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
-                }
-            }
-        }
-
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
-
+        ll cnt;
+        if(a+b >= 10 || b+c >= 10 || a+c >= 10) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
+
+
 
     return 0;
 }

@@ -52,28 +52,27 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    string s, s2, s3;
+    cin >> s;
 
-        ll a;
-        cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
 
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
-                }
-            }
-        }
-
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
-
+    for(ll i=0; i < s.size(); i++){
+        if(s[i] == 'a');
+        else if(s[i] == 'e');
+        else if(s[i] == 'i');
+        else if(s[i] == 'o');
+        else if(s[i] == 'u');
+        else if(s[i] == 'y');
+        else s2+=s[i];
     }
+
+    for(ll i=0; i < s2.size(); i++){
+        s3+='.';
+        s3+=s2[i];
+    }
+
+    cout << s3 << endl;
 
     return 0;
 }

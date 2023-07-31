@@ -1,7 +1,5 @@
 ///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
-
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -51,29 +49,30 @@ int main()
 {
     optimize();
     ///Start
-
     ll t;
     cin >> t;
     while(t--){
 
         ll a;
         cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
 
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
+        ll m=0, n=0;
+        for(ll i=0; i< a; i++){
+            ll x, y;
+            cin >> x >> y;
+            if(x<=10){
+                if(y > n){
+                    n=y;
+                    m=i;
                 }
             }
         }
 
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
-
+        cout << m+1 << endl;
     }
+
+
+
 
     return 0;
 }

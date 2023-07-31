@@ -56,22 +56,10 @@ int main()
     cin >> t;
     while(t--){
 
-        ll a;
-        cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
-
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
-                }
-            }
-        }
-
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
+        ll n;
+        cin >> n;
+        if(n%7==0) cout << n << endl;
+        else cout << (n/7)*7 << endl;
 
     }
 

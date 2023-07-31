@@ -52,28 +52,7 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
-
-        ll a;
-        cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
-
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
-                }
-            }
-        }
-
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
-
-    }
+    cout << "Welcome to ICPC Dhaka Regional Online Preliminary Contest, 2019" << endl;
 
     return 0;
 }

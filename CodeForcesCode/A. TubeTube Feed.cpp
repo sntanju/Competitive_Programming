@@ -1,93 +1,25 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
-
-
-
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long
 
+int q,n,k,a[100];
+int main(){
 
-typedef long long ll;
-typedef vector<int> vi;
-typedef vector<ll> vl;
-typedef vector<vi> vvi;
-typedef vector<vl> vvl;
-typedef pair<int,int> pii;
-typedef pair<double, double> pdd;
-typedef pair<ll, ll> pll;
-typedef vector<pii> vii;
-typedef vector<pll> vll;
-typedef double dl;
+    cin>>q;
+    while(q--){
 
-#define endl '\n'
-#define PB push_back
-#define F first
-#define S second
-#define all(a) (a).begin(),(a).end()
-#define rall(a) (a).rbegin(),(a).rend()
-#define sz(x) (int)x.size()
+        cin>>n>>k;
+        int x=-1,y=-1,z;
 
-const double PI = acos(-1);
-const double eps = 1e-9;
-const int inf = 2000000000;
-const ll infLL = 9000000000000000000;
-#define MOD 1000000007
+        for(int i=1;i<=n;i++)cin>>a[i];
+        for(int i=1;i<=n;i++){
 
-#define mem(a,b) memset(a, b, sizeof(a) )
-#define sqr(a) ((a) * (a))
-
-#define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-#define fraction() cout.unsetf(ios::floatfield); cout.precision(10); cout.setf(ios::fixed,ios::floatfield);
-#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
-
-#define dbg(args...) do {cerr << #args << " : "; faltu(args); } while(0)
-void faltu () {            cerr << endl;}
-template < typename T, typename ... hello>void faltu( T arg, const hello &... rest) {cerr << arg << ' ';faltu(rest...);}
-
-ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
-ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
-
-
-int main()
-{
-    optimize();
-    // Code
-    int t;
-    cin >> t;
-    while(t--){
-        int a, b;
-        cin >> a >> b;
-
-        vector<int> v1;
-        vector<int> v2;
-
-        for(int i =0;i < a; i++){
-            int c;
-            cin >> c;
-            v1.push_back(c);
-        }
-        for(int i =0;i < a; i++){
-            int c;
-            cin >> c;
-            v2.push_back(c);
-        }
-
-        int ans = 0;
-        int temp = 0;
-
-        for(int i=0; i < a; i++){
-
-            if(v1[i] <= b){
-                ans++;
-                if(v2[i] > temp) temp = i+1;
-
+            cin>>z;
+            if(a[i]+i-1<=k){
+                if(z>x)x=z,y=i;
             }
-            b--;
         }
-        if(ans == 0) cout << -1 << endl;
-        else cout << temp << endl;
+        cout<<y<<endl;
     }
 
-
-
-    return 0;
 }

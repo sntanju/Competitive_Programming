@@ -52,28 +52,12 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    ll a, b, c;
+    cin >> a >> b >> c;
+    cout << min(a,min(b,c)) << " " << max(a,max(b,c)) << endl;
 
-        ll a;
-        cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
 
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
-                }
-            }
-        }
 
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
-
-    }
 
     return 0;
 }

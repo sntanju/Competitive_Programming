@@ -52,28 +52,22 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    ll a, b, c, d;
+    cin >> a>> b >> c >>d;
+    vector<ll> v;
+    v.push_back(a);
+    v.push_back(b);
+    v.push_back(c);
+    v.push_back(d);
 
-        ll a;
-        cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
+    sort(v.begin(), v.end());
 
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
-                }
-            }
-        }
+    if(((v[0]+v[1]+v[2] == v[3])) || (v[0]+v[3]) == (v[1]+v[2])) cout << "YES" << endl;
 
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
+    //if((a+b+c+d)%4 == 0) cout << "YES" << endl;
+    else cout << "NO" << endl;
 
-    }
+
 
     return 0;
 }

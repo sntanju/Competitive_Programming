@@ -52,28 +52,14 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    ll p, q, y;
+    cin >> p >> q >> y;
 
-        ll a;
-        cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
+    ll a = p*5*52*y;
+    ll b = q*2*52*y;
+    cout << (a+b) << endl;
 
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
-                }
-            }
-        }
 
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
-
-    }
 
     return 0;
 }

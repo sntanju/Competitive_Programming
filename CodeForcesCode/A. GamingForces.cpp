@@ -55,25 +55,21 @@ int main()
     ll t;
     cin >> t;
     while(t--){
-
         ll a;
         cin >> a;
-        string s;
-        cin >> s;
-        bool flag = true;
 
-        for(ll i=0; i< a; i+=2){
-            for(ll j=1; j < a; j+=2){
-                if(s[i] == s[j]) {
-                    flag = false;
-                }
-            }
+        ll cnt = 0;
+        for(ll i=0; i < a; i++){
+            ll b;
+            cin >> b;
+            //cnt+= (b==1);
+            if(b==1) cnt++;
         }
-
-        if(flag == false) cout << "NO" << endl;
-        else cout << "YES" << endl;
+        cout << a-cnt/2 << endl;
 
     }
+
+
 
     return 0;
 }
