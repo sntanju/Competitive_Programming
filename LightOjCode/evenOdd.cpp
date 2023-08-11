@@ -1,12 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long
 
 int main()
 {
-    int t;
+    ll t;
     cin >> t;
     while(t--){
-        int a;
+        ll a;
         cin >> a;
         if(a%2 == 0) cout << "even" << endl;
         else cout << "odd" << endl;

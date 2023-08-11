@@ -9,11 +9,12 @@ int main()
     cin >> t;
 
     while(t--){
+
         ll a;
         cin >> a;
-
-        ll x=0, y=0;
         vector<ll> v;
+
+        ll sum = 0, ans = 0;
 
         for(ll i=0; i < a; i++){
 
@@ -21,33 +22,10 @@ int main()
             cin >> b;
 
             v.push_back(b);
-            if(b == 1)x++;
-            else y++;
+            sum+=b;
         }
 
-        if(y==0){
-            cout << x-4 << endl;
-        }
 
-        else if(y==1){
-            cout << x << endl;
-        }
-
-        else if(y>= 2 && x <2){
-            cout << y-x << endl;
-        }
-
-        else if(y>= 2 && x >= 2){
-            for(ll j = 0; j < a-1; j++){
-                if(v[j] == -1 && v[j+1] == -1){
-                    ll z = y-2;
-                    cout << (x+2)-z << endl;
-                    break;
-                }
-
-            }
-
-        }
 
 
     }

@@ -4,10 +4,10 @@ using namespace std;
 
 int main()
 {
-    for(ll i = 1000; i >0; i--){
+    for(ll i = 1000; i > 0; i--){
 
         if( i != 1000 && i%5==0){
-            cout << i << endl;
+            cout << endl << i << " " ;
         }
         else cout << i << " ";
     }
