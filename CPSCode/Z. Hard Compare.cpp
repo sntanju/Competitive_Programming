@@ -53,15 +53,22 @@ int main()
     ll a, b, c, d;
     cin >> a >> b >> c >> d;
 
-    ll x = a, y = c;
-    while(b--) x = x*a;
-    while(d--) y = y*c;
+    //ll x = pow(a, b), y = pow(c, d);
 
-    //if(x > y ) cout << "YES" << endl;
-    //else cout << "NO" << endl;
+     ll val1 = 1;
+     for(int i = b; i > 0; i--)
+         val1 = val1 * a;
 
-    if(a+b > c+d)cout << "YES"<< endl;
+    ll val2 = 1;
+     for(int i = d; i > 0; i--)
+         val2 = val2 * c;
+
+    if(val1 > val2 ) cout << "YES" << endl;
+    else if(a+b > c+d) cout << "YES" << endl;
     else cout << "NO" << endl;
+
+    //if(x > y)cout << "YES"<< endl;
+    //else cout << "NO" << endl;
 
 
 

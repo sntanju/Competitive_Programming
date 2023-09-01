@@ -50,28 +50,59 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
 
     ll t;
     cin >> t;
 
     while(t--){
-        ll a, b, c, z = 0;
+
+        ll a, b, c, temp;
         cin >> a >> b >> c;
 
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
+        temp=b;
+        bool ans = false;
 
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
+        string s;
+        cin >> s;
 
-        cout << first << " " << second << " " << third << endl;
+        if(b >= a){
+            cout << "YES" << endl;
+            continue;
+        }
+
+        for(ll i=0; i < s.size(); i++){
+            if(s[i] == '+') temp++;
+            else temp--;
+            if(temp >= a) {
+                ans = true;
+                break;
+            }
+        }
+        if(ans == true){
+            cout << "YES" << endl;
+            continue;
+        }
+        bool maybe = false;
+        temp = b;
+
+        for(ll i=0; i < s.size(); i++){
+            ll temp2 = b;
+            if(s[i] =='+') b++;
+            else b--;
+
+            ll cnt = 0;
+            for(ll j=i+1; j < s.size(); j++){
+                if(s[j] == '+') cnt++;
+            }
+            if(temp2+cnt >= a || b+cnt >= a ) {
+                maybe = true;
+                break;
+            }
+        }
+
+        if(maybe == true) cout << "MAYBE" << endl;
+        else cout << "NO" << endl;
 
     }
-
-
-
     return 0;
 }

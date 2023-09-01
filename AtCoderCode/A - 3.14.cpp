@@ -50,28 +50,19 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
 
-    ll t;
-    cin >> t;
+    string pi = "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679";
+    string ans = "";
 
-    while(t--){
-        ll a, b, c, z = 0;
-        cin >> a >> b >> c;
+    ll n;
+    cin >> n;
 
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
+    for(ll i=0; i < n+2; i++) {
 
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
-
-        cout << first << " " << second << " " << third << endl;
-
+            ans+=pi[i];
     }
 
-
+    cout << ans << endl;
 
     return 0;
 }

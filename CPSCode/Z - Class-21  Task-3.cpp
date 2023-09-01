@@ -49,29 +49,32 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
 int main()
 {
-    optimize();
-    ///Start
+    //optimize();
 
-    ll t;
-    cin >> t;
+    ll n;
+    cin >> n;
 
-    while(t--){
-        ll a, b, c, z = 0;
-        cin >> a >> b >> c;
+    vector<ll> s;
+    vector<ll> h;
+    vector<ll> c;
+    vector<ll> d;
 
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
+    for(ll i=0; i<n; i++){
 
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
+        char ch;
+        ll x;
+        cin >> ch >> x;
 
-        cout << first << " " << second << " " << third << endl;
-
+        if(ch == 'S') s.push_back(x);
+        if(ch == 'H') h.push_back(x);
+        if(ch == 'C') c.push_back(x);
+        if(ch == 'D') d.push_back(x);
     }
 
-
+    for(ll i=1; i <= 13; i++) if(count(s.begin(), s.end(), i) == 0) cout << "S " << i << endl;
+    for(ll i=1; i <= 13; i++) if(count(h.begin(), h.end(), i) == 0) cout << "H " << i << endl;
+    for(ll i=1; i <= 13; i++) if(count(c.begin(), c.end(), i) == 0) cout << "C " << i << endl;
+    for(ll i=1; i <= 13; i++) if(count(d.begin(), d.end(), i) == 0) cout << "D " << i << endl;
 
     return 0;
 }

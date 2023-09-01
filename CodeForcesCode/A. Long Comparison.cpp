@@ -61,9 +61,23 @@ int main()
         cin >> x >> y >> m >> n;
 
         ll mn = min(y,n);
-        if(y-mn >= 7) cout << ">" << endl;
-        else if(n-mn >= 7) cout << "<" << endl;
-        else {}
+        y -= mn;
+        n -= mn;
+
+        if(y >= 7) cout << '>' << endl;
+        else if(n >= 7) cout << '<' << endl;
+
+
+
+        else {
+
+            for(ll i = 0; i < y; i++) x*=10;
+            for(ll i = 0; i < n; i++) m*=10;
+
+            if(x > m) cout << '>' << endl;
+            else if(x < m) cout << '<' << endl;
+            else cout << '=' << endl;
+        }
 
 
     }

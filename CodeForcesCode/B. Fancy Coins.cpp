@@ -54,21 +54,40 @@ int main()
 
     ll t;
     cin >> t;
-
     while(t--){
-        ll a, b, c, z = 0;
-        cin >> a >> b >> c;
+        ll a, b, c, d;
+        cin >> a >> b >> c >> d;
 
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
+        ll x = b*d;
 
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
+        if(c+x >= a) cout << 0 << endl;
+        else if(x+c+b >= a) cout << 1 << endl;
 
-        cout << first << " " << second << " " << third << endl;
+        else{
 
+            ll p = b*c;
+            ll q = c/b;
+
+
+
+            ll y = a - (c+x);
+            if(y%b == 0) cout << y/b << endl;
+            else {
+                    ll k = y/b;
+                    ll h = y%b;
+                    cout << k+h << endl;
+            }
+            //ll z = y/b;
+            /*
+            if(y%b != 0)  {
+                z+=1;
+            }
+
+
+            ll ans = y-(z*b);
+            */
+            //cout << z+1 << endl;
+        }
     }
 
 

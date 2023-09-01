@@ -46,32 +46,36 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+ll ara[(int)1e4+1];
 
 int main()
 {
     optimize();
+
     ///Start
 
-    ll t;
-    cin >> t;
-
-    while(t--){
-        ll a, b, c, z = 0;
-        cin >> a >> b >> c;
-
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
-
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
-
-        cout << first << " " << second << " " << third << endl;
-
+    ara[0] = 0;
+    for(ll i=1; i < 1e4+1; i++) ara[i] = 1;
+    for(ll i=2; i < 1e4+1; i+=2) ara[i]++;
+    for(ll i=3; i < 1e4+1; i++) {
+        for(ll j=i; j < 1e4+1; j+=i)ara[j]++;
     }
 
+   ll t;
+   cin >> t;
 
+   for(ll tc = 1; tc <= t; tc++){
+
+
+       ll l, r, k;
+       cin >> l >> r >> k;
+
+       ll ans = 0;
+       for(ll i = l; i <= r; i++) ans +=ara[i] == k;
+
+       cout << "Case " << tc << ": " << ans << endl;
+
+   }
 
     return 0;
 }

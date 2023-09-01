@@ -50,25 +50,62 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
 
     ll t;
-    cin >> t;
+    cin >>  t;
 
     while(t--){
-        ll a, b, c, z = 0;
-        cin >> a >> b >> c;
+        ll a;
+        cin >> a;
 
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
+        vector<ll> v1;
+        vector<ll> v2;
+        vector<ll> v3;
 
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
+        for(ll i=0; i < a; i++){
+            ll b;
+            cin>> b;
+            v1.push_back(b);
+        }
 
-        cout << first << " " << second << " " << third << endl;
+        vector<ll> temp = v1;
+        sort(temp.begin(), temp.end());
+        temp.erase(unique(temp.begin(), temp.end()), temp.end());
 
+        if( a == 1) cout << -1 << endl;
+        else if(temp.size() == 1 ) cout << -1 << endl;
+        else{
+            sort(v1.begin(), v1.end());
+           // cout << 1 << " " << a-1 << endl;
+
+            ll cnt = 0;
+            ll j = 0;
+            while(v1[j] == v1[j+1]){
+                //cout << v1[j] << " ";
+                v2.push_back(v1[j]);
+                cnt++;
+                j++;
+
+            }
+            //cout << v1[j] << endl;
+            v2.push_back(v1[j]);
+
+            for( ll i = j+1; i < a; i++){
+                    v3.push_back(v1[i]);
+                //if(i== a-1) cout << v1[i] << endl;
+                //else cout << v1[i] << " ";
+            }
+
+            cout << v2.size() << " " << v3.size() << endl;
+            for(ll i=0; i < v2.size(); i++){
+                if(i == v2.size()-1) cout << v2[i] << endl;
+                else cout << v2[i]<< " " ;
+            }
+             for(ll i=0; i < v3.size(); i++){
+                if(i == v3.size()-1) cout << v3[i] << endl;
+                else cout << v3[i] << " " ;
+            }
+        }
     }
 
 

@@ -46,32 +46,41 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+bool sortbyfirst(const pair<int,int> &a,
+              const pair<int,int> &b)
+{
+    return (a.first < b.first);
+}
 
 int main()
 {
     optimize();
-    ///Start
 
-    ll t;
-    cin >> t;
+    ll n;
+    cin >> n;
+    vector< pair <int,int> > v;
 
-    while(t--){
-        ll a, b, c, z = 0;
-        cin >> a >> b >> c;
+    for(ll i=0; i < n; i++){
+        ll a, b;
+        cin >> a >> b;
+        v.push_back( make_pair(b,a) );
+        }
 
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
 
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
+   sort(v.rbegin(), v.rend());
+   //reverse(v.begin(), v.end());
 
-        cout << first << " " << second << " " << third << endl;
+   if(v[0].second != v[1].second) cout << v[0].first+v[1].first;
 
+   else{
+        ll temp = v[0].first+(v[1].first)/2;
+
+        ll temp2, i = 0;
+        while(v[i].second == v[i+1].second) i++;
+
+        ll temp3 = v[0].first+v[i+1].first;
+        cout << max(temp, temp3);
     }
-
-
 
     return 0;
 }

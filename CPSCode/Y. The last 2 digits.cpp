@@ -53,18 +53,17 @@ int main()
     ///Start
 
     ll a, b, c, d;
-    cin >> a >> b >>c >> d;
-    ll multi = a*b*c*d;
+    cin >> a >> b >> c >> d;
 
-    cout << multi << endl;
-    string s = to_string(multi);
-    string s2  ="";
-    s2+=s[s.size()-2];
-    s2+=s[s.size()-1];
+    a = a % 100;
+    b = b % 100;
+    c = c % 100;
+    d = d % 100;
+    ll ans = a*b*c*d;
 
-    cout << s2 << endl;
-
-
+    ans = ans % 100;
+    if(ans <= 9) cout << 0 << ans << endl;
+    else cout << ans%100 << endl;
 
     return 0;
 }

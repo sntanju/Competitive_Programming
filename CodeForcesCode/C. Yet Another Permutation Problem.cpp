@@ -56,19 +56,15 @@ int main()
     cin >> t;
 
     while(t--){
-        ll a, b, c, z = 0;
-        cin >> a >> b >> c;
+        ll a;
+        cin >> a;
 
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
-
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
-
-        cout << first << " " << second << " " << third << endl;
-
+        for(ll i = 1; i <= a; i+=2){
+            for(ll j = i; j <= a; j+=j){
+                cout << j << " ";
+            }
+        }
+        cout << endl;
     }
 
 

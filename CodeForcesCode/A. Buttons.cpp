@@ -54,20 +54,24 @@ int main()
 
     ll t;
     cin >> t;
-
     while(t--){
-        ll a, b, c, z = 0;
-        cin >> a >> b >> c;
+        ll a, b, c;
+        cin >> a>> b >> c;
 
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
+        ll sum = a+b+c;
+        ll first, second;
+        if(c%2 == 0){
+            first = a + c/2;
+            second = b+c/2;
+        }
+        else{
+            first = a+(c/2)+1;
+            second = b+c/2;
+        }
 
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
+        if(first > second) cout  << "First" << endl;
+        else cout << "Second" << endl;
 
-        cout << first << " " << second << " " << third << endl;
 
     }
 

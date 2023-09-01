@@ -59,7 +59,7 @@ int main()
         ll n;
         cin >> n;
         if(n%7==0) cout << n << endl;
-        else cout << (n/7)*7 << endl;
+        else cout << ((n/7))*7 << endl;
 
     }
 

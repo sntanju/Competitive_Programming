@@ -54,21 +54,18 @@ int main()
 
     ll t;
     cin >> t;
-
     while(t--){
-        ll a, b, c, z = 0;
-        cin >> a >> b >> c;
+        ll a, b, c;
+        cin >> a >> b >>c;
 
-        ll f = max(b, c) + 1 - a;
-        ll s = max(a, c) + 1 - b;
-        ll tr = max(a, b) + 1 -c;
+        ll ans1, ans2;
 
-        ll first = max(z, f);
-        ll second = max(z, s);
-        ll third = max(z, tr);
+        for(Ll i=0; i < b; i++){
+            ll x, y;
+            cin >> x >> y;
 
-        cout << first << " " << second << " " << third << endl;
 
+        }
     }
 
 
