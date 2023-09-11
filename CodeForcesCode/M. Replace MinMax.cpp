@@ -1,4 +1,4 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -50,25 +50,43 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
+    ll n;
+    cin >> n;
+    vector<ll> v(n);
 
-    ll t;
-    cin >> t;
-    while(t--){
+    ll mn = 0, mx = 0, cnt1 = 0, cnt2 = 0;
 
-        ll a, b, c, d, z = 0;
-        cin >> a >> b >> c >> d;
+    for(ll i=0; i < n; i++) {
+        cin >> v[i];
 
-        ll first = max(z,a%b-c);
-        ll second = max(z,a/b-d);
-        ll third = max(z,c-a%b)/b;
-        ll fourth = max(z,a/b-d);
-        ll fifth = min(third,fourth);
-        ll ans = first+second-fifth;
-        cout << ans << endl;
+        if (i == 0){
+            mn = v[i], mx = v[i];
+        }
+        if(v[i] > mx){
+            mx = v[i];
+            cnt1 = i;
+        }
 
-        //cout<<max(z,a%b-c)+max(z,a/b-d)-min(max(z,c-a%b)/b,max(z,a/b-d))<<"\n";
+        if(v[i] < mn){
+            mn = v[i];
+            cnt2 = i;
+        }
+
     }
+
+    v[cnt1] = mn;
+    v[cnt2] = mx;
+
+    //cout << v[cnt1] << endl << endl << v[cnt2] << endl << endl;
+
+    for(ll i=0; i < n; i++){
+        if(i == n-1) cout << v[i] << endl;
+        else cout << v[i] << " ";
+    }
+
 
     return 0;
 }
+
+
+

@@ -1,4 +1,4 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -54,21 +54,30 @@ int main()
 
     ll t;
     cin >> t;
+
     while(t--){
 
-        ll a, b, c, d, z = 0;
-        cin >> a >> b >> c >> d;
+        ll a, b;
+        cin >> a >> b;
+        vector<string> v(a);
 
-        ll first = max(z,a%b-c);
-        ll second = max(z,a/b-d);
-        ll third = max(z,c-a%b)/b;
-        ll fourth = max(z,a/b-d);
-        ll fifth = min(third,fourth);
-        ll ans = first+second-fifth;
-        cout << ans << endl;
+        string ans = "vika";
+        ll tmp = 0;
+        for(ll i=0; i < a; i++) cin >> v[i];
 
-        //cout<<max(z,a%b-c)+max(z,a/b-d)-min(max(z,c-a%b)/b,max(z,a/b-d))<<"\n";
+        for(ll i = 0; i < b; i++){
+            bool check = false;
+            for(ll j = 0; j < a; j++){
+                if(v[j][i] == ans[tmp]) check = true;
+            }
+
+            if(check == true){
+                tmp++;
+                if(tmp == 4) break;
+            }
+        }
+        if(tmp == 4) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-
     return 0;
 }

@@ -56,11 +56,10 @@ int main()
     cin >> t;
     while(t--){
 
-        ll n;
+        ll n, ans = -1;
         cin >> n;
-        if(n%7==0) cout << n << endl;
-        else cout << ((n/7))*7 << endl;
-
+        if(n%10 >= n%7) cout << n-(n%7) <<endl;
+        else cout << n+7-(n%7) << endl;
     }
 
     return 0;

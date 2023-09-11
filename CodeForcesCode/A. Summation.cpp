@@ -1,4 +1,4 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -52,23 +52,16 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    ll n, sum = 0;
+    cin >> n;
 
-        ll a, b, c, d, z = 0;
-        cin >> a >> b >> c >> d;
-
-        ll first = max(z,a%b-c);
-        ll second = max(z,a/b-d);
-        ll third = max(z,c-a%b)/b;
-        ll fourth = max(z,a/b-d);
-        ll fifth = min(third,fourth);
-        ll ans = first+second-fifth;
-        cout << ans << endl;
-
-        //cout<<max(z,a%b-c)+max(z,a/b-d)-min(max(z,c-a%b)/b,max(z,a/b-d))<<"\n";
+    for(ll i = 0; i < n; i++){
+        ll b;
+        cin >> b;
+        sum+=b;
     }
+
+    cout << abs(sum) << endl;
 
     return 0;
 }

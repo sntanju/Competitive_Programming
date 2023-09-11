@@ -1,4 +1,4 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -52,23 +52,31 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    ll n, m;
+    cin >> n >> m;
 
-        ll a, b, c, d, z = 0;
-        cin >> a >> b >> c >> d;
+    ll a[n][m];
 
-        ll first = max(z,a%b-c);
-        ll second = max(z,a/b-d);
-        ll third = max(z,c-a%b)/b;
-        ll fourth = max(z,a/b-d);
-        ll fifth = min(third,fourth);
-        ll ans = first+second-fifth;
-        cout << ans << endl;
-
-        //cout<<max(z,a%b-c)+max(z,a/b-d)-min(max(z,c-a%b)/b,max(z,a/b-d))<<"\n";
+    for(ll i = 0; i < n; i++){
+        for(ll j= 0; j < m; j++){
+            cin >> a[i][j];
+        }
     }
+
+    ll num;
+    cin >> num;
+
+    for(ll i = 0; i < n; i++){
+        for(ll j = 0; j < m; j++){
+            if(a[i][j] == num){
+                cout << "will not take number" << endl;
+                return 0;
+            }
+        }
+    }
+
+    cout << "will take number" << endl;
+
 
     return 0;
 }

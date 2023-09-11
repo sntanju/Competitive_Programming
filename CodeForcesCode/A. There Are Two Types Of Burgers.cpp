@@ -1,4 +1,4 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -56,19 +56,33 @@ int main()
     cin >> t;
     while(t--){
 
-        ll a, b, c, d, z = 0;
-        cin >> a >> b >> c >> d;
+        ll b, bp, cp, h, c, sum = 0;
+        cin >> b >> bp >> cp;
+        cin >> h >> c;
 
-        ll first = max(z,a%b-c);
-        ll second = max(z,a/b-d);
-        ll third = max(z,c-a%b)/b;
-        ll fourth = max(z,a/b-d);
-        ll fifth = min(third,fourth);
-        ll ans = first+second-fifth;
-        cout << ans << endl;
+        b/=2;
+        if(h > c){
 
-        //cout<<max(z,a%b-c)+max(z,a/b-d)-min(max(z,c-a%b)/b,max(z,a/b-d))<<"\n";
+            ll mn = min(b, bp);
+            sum+=h*mn;
+            b-=mn;
+
+            ll mn2 = min(b, cp);
+            sum+=c*mn2;
+            cout << sum << endl;
+        }
+
+       else{
+
+            ll mn = min(b, cp);
+            sum+=c*mn;
+            b-=mn;
+
+            ll mn2 = min(b, bp);
+            sum+=h*mn2;
+            cout << sum << endl;
+       }
+
     }
-
     return 0;
 }

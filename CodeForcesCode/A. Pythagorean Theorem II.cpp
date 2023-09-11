@@ -1,4 +1,4 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -46,29 +46,28 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+const int mx = 1e8+123;
+bool arr[mx];
 
 int main()
 {
     optimize();
-    ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    ll n;
+    cin >> n;
 
-        ll a, b, c, d, z = 0;
-        cin >> a >> b >> c >> d;
+    for(ll i = 1; i <= n; i++)arr[i*i] = 1;
 
-        ll first = max(z,a%b-c);
-        ll second = max(z,a/b-d);
-        ll third = max(z,c-a%b)/b;
-        ll fourth = max(z,a/b-d);
-        ll fifth = min(third,fourth);
-        ll ans = first+second-fifth;
-        cout << ans << endl;
-
-        //cout<<max(z,a%b-c)+max(z,a/b-d)-min(max(z,c-a%b)/b,max(z,a/b-d))<<"\n";
+    ll ans = 0;
+    for(ll i = 1; i <= n; i++){
+        for(ll j=i; j <= n; j++){
+            ll temp = (i*i) + (j*j);
+            if(temp >= mx) break;
+            if(arr[temp]) ans++;
+        }
     }
+    cout << ans << endl;
+
 
     return 0;
 }

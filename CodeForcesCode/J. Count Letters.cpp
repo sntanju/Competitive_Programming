@@ -1,4 +1,4 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -52,23 +52,34 @@ int main()
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    string s;
+    cin >> s;
 
-        ll a, b, c, d, z = 0;
-        cin >> a >> b >> c >> d;
+    sort(s.begin(), s.end());
+    string s2 = s;
 
-        ll first = max(z,a%b-c);
-        ll second = max(z,a/b-d);
-        ll third = max(z,c-a%b)/b;
-        ll fourth = max(z,a/b-d);
-        ll fifth = min(third,fourth);
-        ll ans = first+second-fifth;
-        cout << ans << endl;
+    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+    vector<ll> v(s2.size());
 
-        //cout<<max(z,a%b-c)+max(z,a/b-d)-min(max(z,c-a%b)/b,max(z,a/b-d))<<"\n";
+    for(ll i=0; i < v.size(); i++) v[i] = 1;
+
+    ll cnt = 1, temp = 0;
+    for(ll i=0; i < s.size()-1; i++){
+        if(s[i] == s[i+1]){
+            cnt++;
+        }
+        else{
+            v[temp] = cnt;
+            temp++;
+            cnt = 1;
+        }
     }
+
+    for(ll i=0; i < v.size(); i++){
+    cout << s2[i] << " : " << v[i] << endl;
+    }
+
+
 
     return 0;
 }

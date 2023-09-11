@@ -1,4 +1,4 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -46,28 +46,36 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+ll a[1000][1000];
+ll b[1000];
+ll ans[1000];
 
 int main()
 {
     optimize();
     ///Start
 
-    ll t;
-    cin >> t;
-    while(t--){
+    ll n , m;
+    cin >> n >> m;
 
-        ll a, b, c, d, z = 0;
-        cin >> a >> b >> c >> d;
+    for(ll i = 0; i < n; i++){
+        for(ll j = 0; j < m; j++){
+            cin >> a[i][j];
+        }
+    }
 
-        ll first = max(z,a%b-c);
-        ll second = max(z,a/b-d);
-        ll third = max(z,c-a%b)/b;
-        ll fourth = max(z,a/b-d);
-        ll fifth = min(third,fourth);
-        ll ans = first+second-fifth;
-        cout << ans << endl;
+    for(ll i = 0; i < m; i++) cin >> b[i];
 
-        //cout<<max(z,a%b-c)+max(z,a/b-d)-min(max(z,c-a%b)/b,max(z,a/b-d))<<"\n";
+    for(ll i = 0; i < n; i++){
+        ll sum = 0;
+        for(ll j = 0; j < m; j++){
+            sum += (a[i][j] * b[j]);
+        }
+        ans[i] = sum;
+    }
+
+    for(ll i = 0; i < n; i++){
+        cout << ans[i] << endl;
     }
 
     return 0;

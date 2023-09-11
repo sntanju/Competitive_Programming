@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 #define ll long long
+
+const int siz = 1e5+10;
+int a[siz];
 
 int main()
 {
@@ -10,26 +12,26 @@ int main()
 
     while(t--){
 
-        ll a;
-        cin >> a;
-        vector<ll> v;
+        ll n, sum = 0, ans = -1e9;
+        cin >> n;
 
-        ll sum = 0, ans = 0;
-
-        for(ll i=0; i < a; i++){
-
-            ll b;
-            cin >> b;
-
-            v.push_back(b);
-            sum+=b;
+        for(ll i = 1; i <= n; i++) {
+            cin >> a[i];
+            sum += a[i];
         }
 
-
-
-
+        for(ll i = 1; i < n; i++) {
+            if(a[i] == a[i+1]) {
+                if(a[i] == 1) ans = max(ans, sum-4);
+                else ans = max(ans, sum+4);
+            }
+            else
+                ans = max(ans, sum);
+        }
+        cout << ans << endl;
     }
 
     return 0;
 }
+
 

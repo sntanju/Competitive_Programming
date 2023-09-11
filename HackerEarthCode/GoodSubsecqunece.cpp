@@ -1,4 +1,4 @@
-///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -50,25 +50,41 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
 
     ll t;
     cin >> t;
+    //cout << pow(2, 1) << endl;
+
     while(t--){
 
-        ll a, b, c, d, z = 0;
-        cin >> a >> b >> c >> d;
+        ll n;
+        cin >> n;
 
-        ll first = max(z,a%b-c);
-        ll second = max(z,a/b-d);
-        ll third = max(z,c-a%b)/b;
-        ll fourth = max(z,a/b-d);
-        ll fifth = min(third,fourth);
-        ll ans = first+second-fifth;
-        cout << ans << endl;
+        vector<ll> v(n);
+        for(ll i=0; i < n; i++) cin >> v[i];
 
-        //cout<<max(z,a%b-c)+max(z,a/b-d)-min(max(z,c-a%b)/b,max(z,a/b-d))<<"\n";
+        vector<ll> v2 = v;
+        v.erase(unique(v.begin(), v.end()), v.end());
+
+        if(v.size() == v2.size()){
+            cout << (pow(2, n))-1 << endl;
+        }
+        else{
+            ll sum = n, temp = v.size();
+            ll x = (pow(2, temp))-1;
+            sum+=x;
+            cout << sum-1 << endl;
+        }
+
     }
 
     return 0;
 }
+
+/*
+2
+3
+2 3 1
+4
+1 1 1 1
+*/
