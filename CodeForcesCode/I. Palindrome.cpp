@@ -52,15 +52,13 @@ int main()
     optimize();
     ///Start
 
-    string s;
+    string s, s2;
     cin >> s;
+    s2 = s;
+    reverse(s2.begin(), s2.end());
+    if(s == s2) cout << "YES" << endl;
+    else cout << "NO" << endl;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
-    }
     return 0;
 }

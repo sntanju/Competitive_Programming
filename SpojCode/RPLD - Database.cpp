@@ -52,15 +52,28 @@ int main()
     optimize();
     ///Start
 
-    string s;
-    cin >> s;
+    ll t;
+    cin >> t;
+    for(ll i=0; i < t; i++){
+        ll n, m;
+        cin >> n >> m;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+        bool done = 1;
+        map<pair<ll, ll>, bool> mp;
+        while(m--){
+            ll a, b;
+            cin >> a >> b;
+            if(mp[{a, b}]) done = 0;
+            mp[{a, b}] = 1;
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+            if(done == 1) cout << "Scenario #" << i << ": possible" << endl;
+            else cout << "Scenario #" << t+1 << ": impossible" << endl;
+        }
+
+
     }
+
+
+
     return 0;
 }

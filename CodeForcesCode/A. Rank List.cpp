@@ -46,21 +46,33 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+bool cmp ( const pair<int,int> &p1, const pair<int, int> &p2  )
+{
+	if ( p1.first > p2.first ) return 1;
+	if ( p1.first == p2.first ) return ( p1.second < p2.second );
+	return 0;
+}
 
 int main()
 {
     optimize();
     ///Start
 
-    string s;
-    cin >> s;
+    ll n, k, ans = 0;
+    cin >> n >> k;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
-
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+    vector<pair<int, int>> v(n);
+    for(ll i=0; i < n; i++) {
+        cin >> v[i].first >> v[i].second;
+        /// second code
+        v[i].first*=-1;
     }
+    ///sort(v.begin(), v.end(), cmp);
+    sort(v.begin(), v.end());
+
+    for(auto u : v) if(u == v[k-1]) ans++;
+    cout << ans << endl;
+
+
     return 0;
 }

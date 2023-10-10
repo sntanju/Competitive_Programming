@@ -1,4 +1,4 @@
-///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---   |         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -46,21 +46,30 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+const int mx = 2e5+123;
+ll a[mx], sum[mx];
 
 int main()
 {
     optimize();
-    ///Start
 
-    string s;
-    cin >> s;
-
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
-
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+    int n, q;
+    cin >> n >> q;
+    for ( int i = 1; i <= n; i++ ) {
+        cin >> a[i];
     }
+
+    for ( int i = 1; i <= n; i++ ) {
+        sum[i] = a[i] + sum[i-1];
+    }
+
+    while ( q-- ) {
+        int l, r;
+        cin >> l >> r;
+        cout << sum[r] - sum[l-1] << endl;
+    }
+
+
     return 0;
 }
+

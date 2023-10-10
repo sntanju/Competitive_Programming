@@ -52,15 +52,21 @@ int main()
     optimize();
     ///Start
 
-    string s;
-    cin >> s;
+    ll t;
+    cin >> t;
+    while(t--){
+        ll n;
+        cin >> n;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+        ll x = n % 2020;
+        ll y = n - x;
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+        ll z = y / 2020;
+        if(z >= x) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
+
+
+
     return 0;
 }

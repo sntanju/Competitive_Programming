@@ -52,15 +52,30 @@ int main()
     optimize();
     ///Start
 
-    string s;
-    cin >> s;
+    ll t;
+    cin >> t;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+    while(t--){
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+        ll n;
+        cin >> n;
+        vector<ll> v;
+        ll temp = 1;
+
+        while(n > 0){
+
+            if(n % 10 > 0) v.push_back((n%10)*temp);
+            n /= 10;
+            temp *= 10;
+        }
+
+        cout << v.size() << endl;
+
+        for(ll i = 0; i < v.size(); i++){
+            cout << v[i] << " ";
+        }
+        cout << endl;
     }
+
     return 0;
 }

@@ -52,15 +52,35 @@ int main()
     optimize();
     ///Start
 
-    string s;
-    cin >> s;
+    ll t;
+    cin >> t;
+    while(t--){
+        ll n;
+        cin >> n;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+       unordered_map<int, int> mp;
+       vector<ll> v(n), v2;
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+        for(ll i=0; i < n; i++){
+            cin >> v[i];
+            v2.push_back(v[i]);
+
+        }
+
+        sort(v2.rbegin(), v2.rend());
+        for(ll i=0; i < n; i++){
+            if(mp.find(v2[i]) == mp.end()) mp[v2[i]] = i+1;
+            else continue;
+        }
+
+        for(ll i=0; i < n; i++){
+            cout << mp[v[i]] << " ";
+            mp[v[i]]++;
+        }
+        cout << endl;
     }
+
+
+
     return 0;
 }

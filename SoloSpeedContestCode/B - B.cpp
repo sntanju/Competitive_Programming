@@ -50,17 +50,23 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
 
-    string s;
+    string s, s2;
     cin >> s;
+    cin >> s2;
 
     sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+    sort(s2.begin(), s2.end());
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+    string s3 = "";
+
+    if(s == s2) cout << -1 << endl;
+    else{
+        s3 = s+s2;
+        sort(s3.begin(), s3.end());
+        s3.erase(unique(s3.begin(), s3.end()), s3.end());
+        cout << s3 << endl;
     }
+
     return 0;
 }

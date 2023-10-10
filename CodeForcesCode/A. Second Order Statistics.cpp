@@ -52,15 +52,22 @@ int main()
     optimize();
     ///Start
 
-    string s;
-    cin >> s;
+    ll n;
+    cin >> n;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
-
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+    set<int> s;
+    while(n--){
+        ll b;
+        cin >> b;
+        s.insert(b);
     }
+
+   auto it = s.begin();
+   it++;
+
+   if(s.size() < 2) cout << "NO" << endl;
+   else cout << *it << endl;
+
+
     return 0;
 }

@@ -1,4 +1,5 @@
 ///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -50,17 +51,15 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
 
-    string s;
-    cin >> s;
+    ll t;
+    cin >> t;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+    vector<pair<string, string>> v(t);
+    for(ll i=0; i < t; i++) cin >> v[i].first >> v[i].second;
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
-    }
+    sort(v.begin(), v.end());
+    cout << unique(v.begin(), v.end()) - v.begin();
+
     return 0;
 }

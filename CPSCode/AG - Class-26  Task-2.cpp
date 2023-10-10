@@ -52,15 +52,37 @@ int main()
     optimize();
     ///Start
 
-    string s;
-    cin >> s;
+    ll t;
+    cin >> t;
+    while(t--){
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+        ll b, bp, cp, h, c, sum = 0;
+        cin >> b >> bp >> cp;
+        cin >> h >> c;
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+        b/=2;
+        if(h > c){
+
+            ll mn = min(b, bp);
+            sum+=h*mn;
+            b-=mn;
+
+            ll mn2 = min(b, cp);
+            sum+=c*mn2;
+            cout << sum << endl;
+        }
+
+       else{
+
+            ll mn = min(b, cp);
+            sum+=c*mn;
+            b-=mn;
+
+            ll mn2 = min(b, bp);
+            sum+=h*mn2;
+            cout << sum << endl;
+       }
+
     }
     return 0;
 }

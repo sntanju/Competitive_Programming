@@ -1,3 +1,4 @@
+
 ///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
@@ -49,18 +50,23 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
 int main()
 {
-    optimize();
+    //optimize();
     ///Start
 
-    string s;
-    cin >> s;
+    ll n;
+    cin >> n;
+    vector<ll> v(n);
+    for(ll i = 0; i < n; i++)cin >> v[i];
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
-
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+    ll ans[2] = {0}, i = 0, j = n-1, temp = 0, p = n;
+    while(p--){
+        if(v[i] > v[j]) ans[temp++ % 2] += v[i++];
+        else ans[temp++ % 2] += v[j--];
     }
+
+    cout << ans[0] << " " << ans[1] << endl;
+
     return 0;
 }
+
+

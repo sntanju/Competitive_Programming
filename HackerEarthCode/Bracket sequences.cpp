@@ -46,21 +46,41 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+bool check( char ch, char ch2){
+    return (ch == '(' && ch2 == ')' || ch == '{' && ch2 == '}' || ch == '[' && ch2 == ']' );
+}
 
 int main()
 {
     optimize();
-    ///Start
+    /// Start
 
     string s;
     cin >> s;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+    stack<char> st;
+    bool done = 1;
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+    for(auto u : s){
+        if(u == '(' || u == '{' || u == '[')st.push(u);
+        else{
+            if(st.empty()){
+                done = 0;
+                break;
+            }
+            else{
+                if(check( st.top(), u)) st.pop();
+                else {
+                    done = 0;
+                    break;
+                }
+            }
+        }
     }
+
+    if(!st.empty()) done = 0;
+    if(done) cout << "Yes" << endl;
+    else cout << "NO" << endl;
+
     return 0;
 }

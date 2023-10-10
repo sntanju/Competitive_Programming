@@ -50,17 +50,19 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
+    ll t;
+    cin >> t;
+    while(t--){
 
-    string s;
-    cin >> s;
+        string s, s1 = "010", s2 = "101";
+        cin >> s;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
-
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+        ll found = s.find(s1), found2 = s.find(s2);
+        if (found != string::npos || found2 != string::npos) cout << "Good" << endl;
+        else  cout << "Bad" << endl;
     }
+
+
+
     return 0;
 }

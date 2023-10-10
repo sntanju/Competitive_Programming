@@ -53,6 +53,29 @@ int main()
 
     //Start
 
+    ll n, p, q;
+    cin >> n;
+    set<ll> s;
+
+    cin >> p;
+    for(ll i = 0; i < p; i++){
+        ll a;
+        cin >> a;
+        s.insert(a);
+    }
+
+    cin >> q;
+    for(ll i = 0; i < q; i++){
+        ll a;
+        cin >>a;
+        s.insert(a);
+    }
+
+    if(s.size() == n) cout << "I become the guy." << endl;
+    else cout << "Oh, my keyboard!" << endl;
+
+
+    /*
     ll n;
     cin >> n;
     vector<ll> v;
@@ -81,5 +104,6 @@ int main()
     if(v.size() == n) cout << "I become the guy." << endl;
     else cout << "Oh, my keyboard!" << endl;
 
+    */
     return 0;
 }

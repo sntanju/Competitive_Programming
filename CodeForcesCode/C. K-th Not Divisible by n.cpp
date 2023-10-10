@@ -50,17 +50,18 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
+    ll t;
+    cin >> t;
 
-    string s;
-    cin >> s;
+    while(t--){
+        ll a, b;
+        cin >> a >> b;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+        ll temp = (b - 1) / (a - 1);
+        cout << b + temp << endl;
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+
     }
+
     return 0;
 }

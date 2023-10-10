@@ -50,17 +50,40 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    ///Start
+    ll t;
+    cin >> t;
+    while(t--){
+        ll n, k;
+        cin >> n >> k;
 
-    string s;
-    cin >> s;
+        vector<ll> v(n), v2(n);
+        vector<pair<ll, ll>> p;
 
-    sort(s.begin(), s.end());
-    string s2 = s;
-    s2.erase(unique(s2.begin(), s2.end()), s2.end());
+        for(ll i = 0; i < n; i++)cin >> v[i];
+        for(ll i = 0; i < n; i++)cin >> v2[i];
 
-    for(ll i=0; i < s2.size(); i++){
-        cout << s2[i] << " : " << count(s.begin(), s.end(), s2[i]) << endl;
+        for(ll i = 0; i < n; i++)p.push_back({v2[i], v[i]});
+        sort(p.begin(), p.end());
+
+        ll cnt = 1, sum=k;
+
+        for(ll i = 0; cnt != n && i < n; i++){
+
+            if(p[i].first >= k) break;
+            else{
+                ll temp = n - cnt;
+                temp = min(temp, p[i].second);
+                sum+=(temp*p[i].first);
+                cnt+=temp;
+            }
+        }
+
+        if(cnt < n) sum+=((n-cnt)*k);
+        cout << sum << endl;
+
     }
+
+
+
     return 0;
 }
