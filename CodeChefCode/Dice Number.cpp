@@ -45,35 +45,41 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
-int ara[100100];
+
 
 int main()
 {
     optimize();
+
     ll t;
     cin >> t;
-
     while(t--){
-        ll n;
-        cin >> n;
+        ll a, b, c, d, e, f;
 
-        for(ll i = 1; i <= n; i++) cin >> ara[i];
-        for(int i = 1;i <= n; i++){
-            if(ara[i] != i){
-                for(int j = i + 1; j <= n; j++){
-                    if(i == ara[j]){
-                        reverse(ara+i,ara+j+1);
-                    }
-                }
-                break;
-            }
-        }
-        for(int i = 1; i <= n; i++) cout << ara[i] << ' ';
-        cout << endl;
+        vector<ll> v, v2;
+
+        cin >> a >> b >> c >> d >> e >> f;
+
+        v.push_back(a);
+        v.push_back(b);
+        v.push_back(c);
+
+        v2.push_back(d);
+        v2.push_back(e);
+        v2.push_back(f);
+
+        sort(v.begin(), v.end());
+        sort(v2.begin(), v2.end());
+
+        ll first = (v[2]*100)+(v[1]*10)+v[0];
+        ll second = (v2[2]*100) + (v2[1]*10) + v2[0];
+
+        if(first == second) cout << "Tie" << endl;
+        else if(first > second) cout <<"Alice" << endl;
+        else cout << "Bob" << endl;
     }
 
 
 
     return 0;
 }
-

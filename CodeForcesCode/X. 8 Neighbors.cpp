@@ -82,6 +82,9 @@ int main()
     char c7 = c[y-1];
     char c8 = c[y-2];
 
+    if(c1 == c2 == c3 == c4 == c5 == c6 == c7 == c8 == 'x') cout << "yes" << endl;
+    else cout << "nO" << endl;
+
 
 
     return 0;

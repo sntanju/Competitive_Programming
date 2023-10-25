@@ -45,35 +45,35 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
-int ara[100100];
+
 
 int main()
 {
     optimize();
-    ll t;
-    cin >> t;
+    ll i = 0, j = 0;
 
-    while(t--){
-        ll n;
-        cin >> n;
+    string s, s2;
+    cin >> s >> s2;
+	while(i < s.size() && s[i] == '0') i++;
+	while(j < s2.size() && s2[j] == '0') j++;
 
-        for(ll i = 1; i <= n; i++) cin >> ara[i];
-        for(int i = 1;i <= n; i++){
-            if(ara[i] != i){
-                for(int j = i + 1; j <= n; j++){
-                    if(i == ara[j]){
-                        reverse(ara+i,ara+j+1);
-                    }
-                }
-                break;
-            }
-        }
-        for(int i = 1; i <= n; i++) cout << ara[i] << ' ';
-        cout << endl;
-    }
+	if(s.size() - i > s2.size() - j) cout << '>';
+	else if(s.size() - i < s2.size() - j) cout << '<';
 
+	else{
+		for(int tt = 0; tt + i < s.size(); tt++){
+			if(s[tt + i] - '0' > s2[tt + j] - '0'){
+				cout << '>';
+				return 0;
+			}
+			if(s[tt + i] - '0' < s2[tt + j] - '0'){
+				cout << '<';
+				return 0;
+			}
+		}
+		cout << '=';
+	}
 
 
     return 0;
 }
-

@@ -45,35 +45,24 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
-int ara[100100];
+
 
 int main()
 {
     optimize();
-    ll t;
-    cin >> t;
 
-    while(t--){
-        ll n;
-        cin >> n;
+    ll n, a = 0, d = 0;
+    cin >> n;
+    string s;
+    cin >> s;
 
-        for(ll i = 1; i <= n; i++) cin >> ara[i];
-        for(int i = 1;i <= n; i++){
-            if(ara[i] != i){
-                for(int j = i + 1; j <= n; j++){
-                    if(i == ara[j]){
-                        reverse(ara+i,ara+j+1);
-                    }
-                }
-                break;
-            }
-        }
-        for(int i = 1; i <= n; i++) cout << ara[i] << ' ';
-        cout << endl;
+    for(ll i=0; i < n; i++){
+        if(s[i] == 'A') a++;
+        else d++;
     }
-
-
+    if(a == d) cout << "Friendship" << endl;
+    else if(a > d) cout << "Anton" << endl;
+    else if(d > a) cout << "Danik" << endl;
 
     return 0;
 }
-
