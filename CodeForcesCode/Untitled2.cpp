@@ -1,4 +1,4 @@
-///   ***   ---   ||         In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -50,6 +50,50 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
+
+    ll t, i = 1;
+    cin >> t;
+
+    while(t--){
+        string s;
+        cin >> s;
+
+        string ans;
+        ans += s[0];
+
+        /*
+        if(s[0] != '0' && s[1] != '0'){
+            s.erase(0, 1);
+            cout << ans << " " << s << endl;
+        }
+        else {
+            */
+           for(i = 1; i < s.size(); i++){
+                if(s[i] == '0') {
+                    ans+=s[i];
+                }
+                else break;
+           }
+           s.erase(0, i);
+           if(s.size() > ans.size()) cout << ans << " " << s << endl;
+           else{
+            if(s.size() == ans.size()){
+                bool flag = false;
+                for(i = 0; i < s.size(); i++){
+                    if(s[i]-'0' > ans[i]-'0'){
+                        flag = true;
+                        break;
+                    }
+                }
+
+                if(flag == true)  cout << ans << " " << s << endl;
+                else cout << -1 << endl;
+            }
+            else cout << -1 << endl;
+           }
+
+        //}
+    }
 
 
 

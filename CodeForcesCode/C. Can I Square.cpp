@@ -50,24 +50,28 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll t;
+    cin >> t;
+    while(t--){
+        ll n, sum = 0;
+        cin >> n;
 
-    map<string, ll> mp;
-    string temp = "";
+        for(ll i=0; i < n; i++){
+            ll b;
+            cin >> b;
+            sum+=b;
+        }
 
-    for(ll i = 0; i < n; i++){
-        string s;
+        ll x = sqrt(sum);
+        ll y = x*x;
 
-        cin >> s;
-        mp[s]++;
 
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+        if((y - sum) == 0) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-    cout << temp << endl;
+
+
 
     return 0;
 }

@@ -52,22 +52,30 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
+    ll n;
     cin >> n;
+    vector<ll> v;
 
-    map<string, ll> mp;
-    string temp = "";
-
-    for(ll i = 0; i < n; i++){
-        string s;
-
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+    for(ll i = 0; i < n; i++) {
+        ll a;
+        cin >> a;
+        v.push_back(a);
     }
-    cout << temp << endl;
+
+    for(ll i = 0; i < n-1; i++){
+
+        for(ll j = 0; j < n-1; j++){
+
+                if(v[j] > v[j+1]){
+
+                    v[j] = v[j] + v[j+1];
+                    v[j+1] = v[j] - v[j+1];
+                    v[j] = v[j] - v[j+1];
+                }
+                 cout << v[j] << " ";
+        }
+        cout << v[n-1] << endl;
+    }
 
     return 0;
 }

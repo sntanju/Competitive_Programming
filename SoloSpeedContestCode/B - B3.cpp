@@ -52,22 +52,17 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    string s;
+    getline(cin, s);
 
-    map<string, ll> mp;
-    string temp = "";
+    if((s.find(":)") != string::npos) && (s.find(":(") == string::npos)) cout << "alive" << endl;
 
-    for(ll i = 0; i < n; i++){
-        string s;
+    else if((s.find(":)") == string::npos) && (s.find(":(") != string::npos)) cout << "undead" << endl;
 
-        cin >> s;
-        mp[s]++;
+    else if((s.find(":)") != string::npos) && (s.find(":(") != string::npos)) cout << "double agent" << endl;
+    else cout << "machine" << endl;
 
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
-    }
-    cout << temp << endl;
+
 
     return 0;
 }

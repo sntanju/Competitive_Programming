@@ -52,22 +52,18 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    string s;
+    cin >> s;
 
-    map<string, ll> mp;
-    string temp = "";
+    ll sz = s.size(), cnt = 0;
+    for(ll i = 0; i < sz / 2; i++){
 
-    for(ll i = 0; i < n; i++){
-        string s;
-
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+        if(s[i] != s[sz - i - 1])
+        cnt++;
     }
-    cout << temp << endl;
+
+    if(cnt == 1 || cnt == 0 && sz % 2 == 1) cout << "YES" << endl;
+    else cout << "NO" << endl;
 
     return 0;
 }

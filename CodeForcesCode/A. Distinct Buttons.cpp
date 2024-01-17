@@ -52,22 +52,33 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll t;
+    cin >> t;
+    while(t--){
 
-    map<string, ll> mp;
-    string temp = "";
+        ll n;
+        cin >> n;
+        ll temp = 0, temp2 = 0, temp3 = 0, temp4 = 0;
 
-    for(ll i = 0; i < n; i++){
-        string s;
+        for(ll i = 0; i < n; i++){
+            ll a, b;
+            cin >> a >> b;
 
-        cin >> s;
-        mp[s]++;
+            if(a > 0) temp = 1;
+            if(a < 0) temp2 = 1;
+            if(b > 0) temp3 = 1;
+            if(b < 0) temp4 = 1;
 
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+          // if(a > 0 && b > 0) temp = 2;
+          // if(a < 0 && b < 0) temp2 = 2;
+        }
+
+        if(temp + temp2 + temp3 + temp4 == 4) cout << "NO" << endl;
+        else cout << "YES" << endl;
+        //if(temp == 2 && temp2 == 2) cout << "NO" << endl;
+        //else cout << "YES" << endl;
+
     }
-    cout << temp << endl;
 
     return 0;
 }

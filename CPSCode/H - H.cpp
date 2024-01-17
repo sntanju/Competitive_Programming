@@ -1,6 +1,7 @@
 ///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
-
+//<<<<<<<<<<<<<<<  Sanjida Nasrin Tanju  >>>>>>>>>>>>>>>>>>
+//<<<<<<<<<<<  National University Bangladesh  >>>>>>>>>>>>
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -50,24 +51,21 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll m, n;
+    cin >> m >> n;
 
-    map<string, ll> mp;
-    string temp = "";
+    string s, s2, temp, temp2;
+    cin >> s >> s2;
 
-    for(ll i = 0; i < n; i++){
-        string s;
+    for(ll i=0; i < s.size(); i++) temp+=s2[i];
+    for(ll i = s2.size()-1, j = 0; j < s.size(); i--, j++ ) temp2+=s2[i];
+    reverse(temp2.begin(), temp2.end());
 
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
-    }
-    cout << temp << endl;
+    if(temp == s && temp2 == s) cout << 0 << endl;
+    else if(temp != s && temp2 != s) cout << 3 << endl;
+    else if(temp == s) cout << 1 << endl;
+    else cout << 2 << endl;
 
     return 0;
 }

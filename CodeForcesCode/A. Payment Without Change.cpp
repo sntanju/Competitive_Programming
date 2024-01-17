@@ -52,22 +52,21 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll t;
+    cin >> t;
 
-    map<string, ll> mp;
-    string temp = "";
+    while(t--){
 
-    for(ll i = 0; i < n; i++){
-        string s;
+        ll a, b, c, d;
+        cin >> a >> b >> c >> d;
+        string ans = "NO";
 
-        cin >> s;
-        mp[s]++;
+        if((a * c) + b >= d && (d % c) <= b) ans = "YES";
+        else ans = "NO";
+        cout << ans << endl;
 
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
     }
-    cout << temp << endl;
+
 
     return 0;
 }

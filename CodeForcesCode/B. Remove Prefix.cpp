@@ -50,24 +50,27 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll t;
+    cin >> t;
 
-    map<string, ll> mp;
-    string temp = "";
+    while(t--){
 
-    for(ll i = 0; i < n; i++){
-        string s;
+        ll n;
+        cin >> n;
+        vector<ll> v(n), v2(n+1);
 
-        cin >> s;
-        mp[s]++;
+        for(ll i = 0; i < n; i++)cin >> v[i];
 
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+        ll ans = 0;
+        for(ll i = n-1; i >= 0; i--){
+            if(v2[v[i]]++){
+                ans = i+1;
+                break;
+            }
+        }
+        cout << ans << endl;
     }
-    cout << temp << endl;
 
     return 0;
 }

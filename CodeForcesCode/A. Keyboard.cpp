@@ -50,24 +50,20 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// Start
+    string str = "qwertyuiopasdfghjkl;zxcvbnm,./", ans = "";
 
-    ll n, ans = 0;
-    cin >> n;
+    char ch;
+    cin >> ch;
 
-    map<string, ll> mp;
-    string temp = "";
+    string s;
+    cin >> s;
 
-    for(ll i = 0; i < n; i++){
-        string s;
-
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+    for(ll i = 0; i < s.size(); i++){
+        ll ind = str.find(s[i]);
+        if(ch == 'R') ans+= str[ind - 1];
+        else ans += str[ind + 1];
     }
-    cout << temp << endl;
 
+    cout << ans << endl;
     return 0;
 }

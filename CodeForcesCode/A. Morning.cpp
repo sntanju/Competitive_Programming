@@ -52,22 +52,27 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll t;
+    cin >> t;
 
-    map<string, ll> mp;
-    string temp = "";
+    while(t--){
 
-    for(ll i = 0; i < n; i++){
         string s;
-
         cin >> s;
-        mp[s]++;
 
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+        ll temp = 1, ans = 0;
+        for(ll i = 0; i < 4; i++){
+
+            ll num = s[i] - '0';
+            if(num == 0) num = 10;
+
+            ans += abs(num - temp);
+            temp = num;
+        }
+        cout << ans + 4 << endl;
     }
-    cout << temp << endl;
+
+
 
     return 0;
 }

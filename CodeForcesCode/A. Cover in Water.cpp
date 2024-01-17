@@ -52,22 +52,17 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll t;
+    cin >> t;
 
-    map<string, ll> mp;
-    string temp = "";
-
-    for(ll i = 0; i < n; i++){
+    while(t--){
+        ll n;
+        cin >> n;
         string s;
-
         cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+        if (s.find("...") != -1) cout << 2 << endl;
+        else cout << count(s.begin(), s.end(), '.') << endl;
     }
-    cout << temp << endl;
 
     return 0;
 }

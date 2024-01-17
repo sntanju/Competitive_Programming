@@ -52,22 +52,20 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll t;
+    cin >> t;
 
-    map<string, ll> mp;
-    string temp = "";
+    while(t--){
+        ll n, k;
+        cin >> n >> k;
 
-    for(ll i = 0; i < n; i++){
-        string s;
+        ll ara[n];
+        for(ll i = 0; i < n; i++) cin >> ara[i];
 
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+        if(is_sorted(ara, ara + n) || k > 1) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-    cout << temp << endl;
+
 
     return 0;
 }

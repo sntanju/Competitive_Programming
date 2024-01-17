@@ -52,22 +52,11 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
+    string n;
     cin >> n;
 
-    map<string, ll> mp;
-    string temp = "";
-
-    for(ll i = 0; i < n; i++){
-        string s;
-
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
-    }
-    cout << temp << endl;
+    ll ans = (n[0] - '0' + 1) * pow(10, n.length()-1) - stoll(n);
+    cout << ans << endl;
 
     return 0;
 }

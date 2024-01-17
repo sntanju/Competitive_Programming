@@ -50,24 +50,56 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll t;
+    cin >> t;
 
-    map<string, ll> mp;
-    string temp = "";
+    while(t--){
 
-    for(ll i = 0; i < n; i++){
-        string s;
+        ll n;
+        cin >> n;
 
-        cin >> s;
-        mp[s]++;
+        ll a, b, c;
+        cin >> a >> b >> c;
 
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+        string ans = "YES";
+        if(n == 1){
+            if(a == 0) ans = "NO";
+            else{
+                if(a == 2){
+                    if(b == 0) ans = "NO";
+                }
+                else if(a == 3){
+                    if(c == 0) ans = "NO";
+                }
+            }
+        }
+        if(n == 2){
+            if(b == 0) ans = "NO";
+            else{
+                if(b == 1){
+                    if(a == 0) ans = "NO";
+                }
+                else if(b == 3){
+                    if(c == 0) ans = "NO";
+                }
+            }
+        }
+        if(n == 3){
+            if(c == 0) ans = "NO";
+            else{
+                if(c == 1){
+                    if(a == 0) ans = "NO";
+                }
+                else if(c == 2){
+                    if(b == 0) ans = "NO";
+                }
+            }
+        }
+        cout << ans << endl;
     }
-    cout << temp << endl;
+
+
 
     return 0;
 }

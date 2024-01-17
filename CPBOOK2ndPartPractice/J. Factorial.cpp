@@ -46,28 +46,29 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+/// Start
+int factorial(int n) {
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    else {
+        return n * factorial(n - 1);
+    }
+}
 
-int main()
-{
-    optimize();
-    /// Start
-
-    ll n, ans = 0;
+int main() {
+    int n;
     cin >> n;
 
-    map<string, ll> mp;
-    string temp = "";
-
-    for(ll i = 0; i < n; i++){
-        string s;
-
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+    if (n >= 1 && n <= 20) {
+        cout << factorial(n) << endl;
     }
-    cout << temp << endl;
+    else {
+        cout << "Input out of range." << endl;
+    }
 
     return 0;
 }
+
+
+

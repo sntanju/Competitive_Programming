@@ -52,22 +52,28 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll t;
+    cin >> t;
 
-    map<string, ll> mp;
-    string temp = "";
+    while(t--){
 
-    for(ll i = 0; i < n; i++){
-        string s;
+        ll a, b;
+        cin >> a >> b;
 
-        cin >> s;
-        mp[s]++;
+        string s, s2;
+        cin >> s >> s2;
 
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+        ll cnt = 0;
+        for(ll i = 0; i <= 5; i++) {
+            if(s.find(s2) != string::npos) break;
+            cnt++;
+            s+=s;
+        }
+        if(cnt > 5) cout << -1 << endl;
+        else cout << cnt << endl;
     }
-    cout << temp << endl;
+
+
 
     return 0;
 }

@@ -46,28 +46,39 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+void recurse(vector<ll> v){
+
+    for(ll i = v.size() - 1; i >= 0; i--){
+        if(i % 2 == 0) {
+            if(i == 0) cout << v[i] << endl;
+            else cout << v[i] << " ";
+        }
+
+    }
+}
 
 int main()
 {
     optimize();
     /// Start
 
-    ll n, ans = 0;
+    ll n;
     cin >> n;
+    vector<ll> v;
 
-    map<string, ll> mp;
-    string temp = "";
-
-    for(ll i = 0; i < n; i++){
-        string s;
-
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+    for(ll i = 0; i < n; i++) {
+        ll b;
+        cin >> b;
+        v.push_back(b);
     }
-    cout << temp << endl;
+
+   recurse(v);
+   cout << endl;
 
     return 0;
 }
+
+
+
+
+

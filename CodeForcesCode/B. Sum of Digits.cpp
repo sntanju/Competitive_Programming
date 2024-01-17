@@ -52,22 +52,18 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    string s;
+    cin>>s;
 
-    map<string, ll> mp;
-    string temp = "";
+    ll cnt = 0;
+    while(s.size() != 1){
 
-    for(ll i = 0; i < n; i++){
-        string s;
+        ll sum = 0;
+        for(ll i=0; i < s.size(); i++) sum += (s[i] - '0');
 
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
+        s = to_string(sum);
+        cnt++;
     }
-    cout << temp << endl;
-
+    cout << cnt << endl;
     return 0;
 }

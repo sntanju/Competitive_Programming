@@ -52,22 +52,11 @@ int main()
     optimize();
     /// Start
 
-    ll n, ans = 0;
-    cin >> n;
+    ll a, b, c;
+    cin >> a >> b >> c;
 
-    map<string, ll> mp;
-    string temp = "";
-
-    for(ll i = 0; i < n; i++){
-        string s;
-
-        cin >> s;
-        mp[s]++;
-
-        if(mp[s] > ans) temp = s;
-        ans = max(ans, mp[s]);
-    }
-    cout << temp << endl;
+    if((a - b) > c) cout << c + 1 << endl;
+    else cout << a - b << endl;
 
     return 0;
 }
