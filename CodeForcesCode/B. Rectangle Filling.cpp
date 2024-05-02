@@ -50,20 +50,41 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// START
 
     ll t;
     cin >> t;
 
-    while(t--){
+    while(t--) {
 
-        string s;
-        cin >> s;
+        ll n, m;
+        cin >> n >> m;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        vector<string> v(n);
+        for(ll i = 0; i < n; i++) cin >> v[i];
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        ll a = count(v[0].begin(), v[0].end(), 'W');
+
+        ll b = count(v[n - 1].begin(), v[n - 1].end(), 'W');
+
+        ll c = count(v[0].begin(), v[0].end(), 'B');
+
+        ll d = count(v[n - 1].begin(), v[n - 1].end(), 'B');
+
+        if(n == 1 && m == 1) cout << "YES" << endl;
+        else if(n == 1 && n != m) {
+            //if(v[0][0] != v[0][m - 1]) cout << " NO" << endl;
+            string s = v[0];
+            //sort(s.begin(), s.end());
+            //s.erase(unique(s.begin(), s.end()), s.end());
+            if(s[0] == s[s.size() - 1]) cout << "YES" << endl;
+            else cout << "NO" << endl;
+
+        }
+        else if(a > 0 && b > 0) cout << "YES" << endl;
+
+        else if(c > 0 && d > 0) cout << "YES" << endl;
+        else  cout << "NO" << endl;
     }
 
 

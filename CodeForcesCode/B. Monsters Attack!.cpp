@@ -50,20 +50,50 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// Start
 
     ll t;
     cin >> t;
 
     while(t--){
 
-        string s;
-        cin >> s;
+        ll n, k;
+        cin >> n >> k;
+        vector<ll> v;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        for(ll i = 0; i < n; i++){
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+            ll b;
+            cin >> b;
+            v.push_back(b);
+        }
+
+        map<ll, ll> mp;
+
+        for(ll i = 0; i < n; i++) {
+
+            ll b;
+            cin >> b;
+            mp[abs(b)] += v[i];
+        }
+
+        bool flag = true;
+        ll temp = 0;
+
+        for(auto &i : mp){
+
+            temp += i.second;
+            ll x = i.first * k;
+            if(temp > x) {
+                flag = false;
+                break;
+            }
+        }
+
+        if(flag == false) cout << "NO" << endl;
+        else cout << "YES" << endl;
+
+
     }
 
 

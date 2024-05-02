@@ -46,27 +46,26 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+const ll mx = 2e5+123;
+ll a[mx], b[mx];
 
 int main()
 {
     optimize();
+    /// START
 
+    ll n, m;
+    cin >> n >> m;
 
-    ll t;
-    cin >> t;
+    for(ll i = 0; i < n; i++) cin >> a[i];
+    for(ll i = 0; i < m; i++) cin >> b[i];
 
-    while(t--){
+    sort(a, a+n);
+    for(ll i = 0; i < m; i++) {
 
-        string s;
-        cin >> s;
-
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
-
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        ll x = upper_bound(a, a+n, b[i]) - a;
+        cout << x << " ";
     }
-
-
 
     return 0;
 }

@@ -50,23 +50,13 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
+    /// START
 
+    ll n;
+    cin >> n;
 
-    ll t;
-    cin >> t;
-
-    while(t--){
-
-        string s;
-        cin >> s;
-
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
-
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
-    }
-
-
+    ll a[] = {10, 10, 8, 9, 8, 7, 7, 7, 7, 0, 9, 6, 8};
+    cout << a[n] << endl;
 
     return 0;
 }

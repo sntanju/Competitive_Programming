@@ -51,19 +51,33 @@ int main()
 {
     optimize();
 
-
     ll t;
     cin >> t;
 
     while(t--){
 
-        string s;
-        cin >> s;
+        ll a;
+        cin >> a;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        vector<ll> v(a + 2);
+        v = {0};
+        string ans = "YES";
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        for(ll i = 0; i < a; i++) cin >> v[i];
+
+        for(ll i = 0; i < a; i++) {
+
+            if((v[i + 1] >= (2 * v[i])) && (v[i + 2] >= v[i])){
+                v[i + 1] -= (2 * v[i]);
+                v[i + 2] -= v[i];
+            }
+            else {
+                ans = "NO";
+                break;
+            }
+        }
+
+        cout << ans << endl;
     }
 
 

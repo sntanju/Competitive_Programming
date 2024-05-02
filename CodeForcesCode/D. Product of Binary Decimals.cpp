@@ -46,27 +46,41 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+ll v[] = {
+    1, 10, 11, 100, 101, 110, 111, 121, 1000, 1001, 1010, 1011, 1100, 1101, 1110, 1111,
+    1210, 1221, 1331, 10000, 10001, 10010, 10011, 10100, 10101, 10110, 10111, 10201,
+    11000, 11001, 11010, 11011, 11100, 11101, 11110, 11111, 11121, 11211, 12100, 12111,
+    12210, 12221, 12321, 13310, 13431, 14641, 100000
+};
 
 int main()
 {
     optimize();
-
+    /// START
 
     ll t;
     cin >> t;
 
-    while(t--){
+    while(t--) {
 
-        string s;
-        cin >> s;
+        ll n;
+        cin >> n;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        ll sz = sizeof(v) / sizeof(v[0]);
+        bool flag = false;
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        for (ll i = 0; i < sz; i++) {
+
+            if (n == v[i]) {
+                flag = true;
+                break;
+            }
+        }
+
+        if(flag == true) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-
-
 
     return 0;
 }
+

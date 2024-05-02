@@ -46,45 +46,34 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
-ll calculate(ll n, ll ara[])
-{
-    if (n < 10)
-        return (n * (n + 1) / 2);
-
-    ll a = (ll)(log10(n));
-    ll b = (ll)(ceil(pow(10, a)));
-    ll c = n / b;
-
-    return (c * ara[a] + (c * (c - 1) / 2) * b + c * (1 + n % b) + calculate(n % b, ara));
-}
-
-
-ll ans(ll n)
-{
-    ll a = (ll)(log10(n));
-    ll ara[a + 1];
-    ara[0] = 0; ara[1] = 45;
-
-    for(ll i = 2; i <= a; i++)
-        ara[i] = ara[i - 1] * 10 + 45 * (ll)(ceil(pow(10, i - 1)));
-
-    return calculate(n, ara);
-
-}
-
+const ll mx = 2e5+123;
+ll ara[mx];
 
 int main()
 {
     optimize();
+    /// Start
+
+    for(ll i = 1; i <= mx; i++){
+        ll temp = i;
+
+        while(temp){
+            ara[i] += temp % 10;
+            temp /= 10;
+        }
+
+        ara[i] += ara[i - 1];
+    }
+
 
     ll t;
     cin >> t;
 
     while(t--){
+
         ll n;
         cin >> n;
-
-        cout << ans(n) << endl;
+        cout << ara[n] << endl;
     }
 
 

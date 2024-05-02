@@ -50,21 +50,15 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
+    /// Start
 
+    vector<ll> v(3);
+    cin >> v[0] >> v[1] >> v[2];
 
-    ll t;
-    cin >> t;
+    sort(v.begin(), v.end());
+    ll x = (v[1] - v[0]) + (v[2] - v[1]);
+    cout << x << endl;
 
-    while(t--){
-
-        string s;
-        cin >> s;
-
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
-
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
-    }
 
 
 

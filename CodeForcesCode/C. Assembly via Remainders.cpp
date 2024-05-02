@@ -51,22 +51,30 @@ int main()
 {
     optimize();
 
-
     ll t;
     cin >> t;
 
-    while(t--){
+    while(t--) {
 
-        string s;
-        cin >> s;
+        ll n;
+        cin >> n;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        vector<ll> v(n - 1);
+        for(ll i = 0; i < n - 1; i++) cin >> v[i];
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+
+        vector<ll> v2;
+
+        v2.push_back(603124134);
+
+
+        for(ll i = 0; i < n - 1; i++) {
+            v2.push_back(v2[i] + v[i]);
+        }
+        for(ll i = 0; i < n; i++) cout << v2[i] << " ";
+        cout << endl;
+
     }
-
-
 
     return 0;
 }

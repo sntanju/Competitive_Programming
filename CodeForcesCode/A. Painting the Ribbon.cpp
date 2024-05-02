@@ -50,20 +50,20 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// START
 
     ll t;
     cin >> t;
 
-    while(t--){
+    while(t--) {
 
-        string s;
-        cin >> s;
+        ll a, b, c;
+        cin >> a >> b >> c;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        ll x = (a + b - 1) / b;
+        if(x + c >= a) cout << "NO" << endl;
+        else cout << "YES" << endl;
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
     }
 
 

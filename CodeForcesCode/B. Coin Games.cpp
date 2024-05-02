@@ -50,20 +50,29 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// START
 
     ll t;
     cin >> t;
 
-    while(t--){
+    while(t--) {
+
+        ll n;
+        cin >> n;
 
         string s;
         cin >> s;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        ll u = 0, d = 0;
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        for(ll i = 0; i < n; i++) {
+
+            if(s[i] == 'U') u++;
+            else d++;
+        }
+
+        if(u % 2 == 1) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
 
 

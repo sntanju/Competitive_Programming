@@ -50,22 +50,17 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// Start
 
     ll t;
     cin >> t;
 
     while(t--){
-
-        string s;
-        cin >> s;
-
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
-
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        ll n;
+        cin >> n;
+        if((n + 1) % 3 == 0 || (n - 1) % 3 == 0) cout << "First" << endl;
+        else cout << "Second" << endl;
     }
-
 
 
     return 0;

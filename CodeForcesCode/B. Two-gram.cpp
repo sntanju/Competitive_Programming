@@ -50,22 +50,31 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
+    /// START
 
+    ll n;
+    cin >> n;
 
-    ll t;
-    cin >> t;
+    string s, s2, s3;
+    cin >> s;
 
-    while(t--){
+    ll cnt = 0;
 
-        string s;
-        cin >> s;
+    map<string, ll> mp;
+    for(ll i = 0; i < n - 1; i++) {
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        s2 = s[i];
+        s2 += s[i + 1];
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        mp[s2]++;
+        if(mp[s2] > cnt){
+
+            cnt = mp[s2];
+            s3 = s2;
+        }
     }
 
+    cout << s3 << endl;
 
 
     return 0;

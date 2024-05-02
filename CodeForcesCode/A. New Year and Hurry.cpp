@@ -51,21 +51,19 @@ int main()
 {
     optimize();
 
+    ll a, b;
+    cin >> a >> b;
 
-    ll t;
-    cin >> t;
+    ll total_min = 4 * 60;
+    ll cost_min = b, cnt = 0;
 
-    while(t--){
+    for(ll i = 1; i <= a; i++){
 
-        string s;
-        cin >> s;
-
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
-
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        cost_min += (5 * i);
+        if(total_min >= cost_min) cnt++;
     }
 
+    cout << cnt << endl;
 
 
     return 0;

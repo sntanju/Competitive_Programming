@@ -50,20 +50,18 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// START
 
     ll t;
     cin >> t;
+    while(t--) {
 
-    while(t--){
-
-        string s;
+        string s, s2 = "it";
         cin >> s;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
-
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        size_t f = s.find(s2);
+        if(f != string::npos) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
 
 

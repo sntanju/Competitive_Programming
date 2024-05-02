@@ -50,7 +50,7 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// Start
 
     ll t;
     cin >> t;
@@ -60,10 +60,21 @@ int main()
         string s;
         cin >> s;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        ll l = 0, u = 0;
+        string ans = "";
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        for(ll i = s.size() - 1; i >= 0; i--){
+
+            if(s[i] == 'B') u++;
+            else if(s[i] == 'b') l++;
+            else if(islower(s[i]) && l > 0) l--;
+            else if(isupper(s[i]) && u > 0) u--;
+            else ans += s[i];
+
+        }
+
+        reverse(ans.begin(), ans.end());
+        cout << ans << endl;
     }
 
 

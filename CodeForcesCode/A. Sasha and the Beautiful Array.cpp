@@ -51,21 +51,30 @@ int main()
 {
     optimize();
 
-
     ll t;
-    cin >> t;
+    cin >>  t;
 
     while(t--){
 
-        string s;
-        cin >> s;
+        ll n;
+        cin >> n;
+        vector<ll> v;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        for(ll i = 0; i < n; i++){
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+            ll b;
+            cin >> b;
+            v.push_back(b);
+        }
+
+        ll sum = 0;
+        sort(v.begin(), v.end());
+
+        for(ll i = 1; i < n; i++) {
+            sum += v[i] - v[i-1];
+        }
+        cout << sum << endl;
     }
-
 
 
     return 0;

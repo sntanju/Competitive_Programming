@@ -50,23 +50,21 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// START
 
     ll t;
     cin >> t;
 
     while(t--){
 
-        string s;
-        cin >> s;
+        ll a, b, c;
+        cin >> a >> b >> c;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        if(a < b && b < c) cout << "STAIR" << endl;
+        else if(a < b && b > c) cout << "PEAK" << endl;
+        else cout << "NONE" << endl;
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
     }
-
-
 
     return 0;
 }

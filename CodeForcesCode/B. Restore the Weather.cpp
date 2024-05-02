@@ -52,27 +52,69 @@ int main()
     optimize();
     ///Start
 
-    ll a, b;
-    cin >> a >> b;
+    ll t;
+    cin >> t;
 
-    vector<ll> v1;
-    vector<ll> v2;
+    while (t--) {
 
-    for(ll i=0; i< a; i++){
-        ll b;
-        cin >> b;
-        v1.push_back(b);
+      ll n, m;
+      cin >> n >> m;
+
+      char s[n][m];
+      for(ll i = 0; i < n; i++){
+
+         for(ll j = 0; j < m; j++){
+            cin >> s[i][j];
+         }
+      }
+
+      if(s[0][0] == s[n-1][m-1]){
+         cout << "YES" << endl;
+         continue;
+      }
+
+      char c1 = s[n - 1][m - 1], c2 = s[0][0];
+      ll f1 = 0, f2 = 0;
+
+      for(ll i = 0; i < m; i++){
+         if(s[0][i] == c1){
+
+            f1++;
+            break;
+         }
+      }
+
+      for(ll i = 0; i < n; i++){
+         if(s[i][0] == c1){
+
+            f1++;
+            break;
+         }
+      }
+
+      for(ll i = 0; i < m; i++){
+         if(s[n - 1][i] == c2){
+
+            f2++;
+            break;
+         }
+      }
+
+      for(ll i = 0; i < n; i++){
+         if(s[i][m - 1] == c2){
+
+            f2++;
+            break;
+         }
+      }
+
+      if(f1 == 2 || f2 == 2){
+         cout << "YES" << endl;
+      }
+
+      else cout << "NO" << endl;
+
     }
-
-    for(ll i=0; i< a; i++){
-        ll b;
-        cin >> b;
-        v2.push_back(b);
-    }
-
-
-
-
 
     return 0;
 }

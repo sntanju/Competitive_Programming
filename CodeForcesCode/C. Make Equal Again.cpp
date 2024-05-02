@@ -50,23 +50,60 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// START
 
     ll t;
     cin >> t;
 
     while(t--){
 
-        string s;
-        cin >> s;
+        ll n;
+        cin >> n;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        vector<ll> v;
+        ll cnt = 1, cnt2 = 0, cnt3 = 1;
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        for (ll i = 0; i < n; i++){
+
+            ll b;
+            cin >> b;
+            v.push_back(b);
+        }
+
+        for(ll i = 1; i < n; i++){
+            if(v[i] == v[0]) cnt++;
+            else break;
+        }
+
+        for(ll i = n - 1; i > 0; i--){
+            if(v[i] == v[0]) cnt2++;
+            else break;
+        }
+
+        for(ll i = n - 2; i > 0; i--){
+            if(v[i] == v[n - 1]) cnt3++;
+            else break;
+        }
+
+        //cout << "<<<<<<<     "  << cnt << "   " << cnt2 << "     " << cnt3 << "     " << "   >>>>>>>" << endl;
+
+        ll temp = n - (cnt + cnt2);
+
+        if(v[0] == v[n - 1]) {
+                if( temp <= 0) cout << 0 << endl;
+                else cout << n - (cnt + cnt2) << endl;
+        }
+        else{
+            cout << n - max(cnt, cnt3) << endl;
+        }
+
     }
-
-
+/*
+8
+3 4 6 2 3 6 6 6
+*/
 
     return 0;
 }
+
+

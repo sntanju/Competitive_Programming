@@ -51,19 +51,19 @@ int main()
 {
     optimize();
 
-
     ll t;
     cin >> t;
 
     while(t--){
 
-        string s;
-        cin >> s;
+        ll a, b, c, d = 0;
+        cin >> a >> b >> c;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        ll x = max(a, b);
+        ll y = max(b - a - c, d);
+        cout << x + y << endl;
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+
     }
 
 

@@ -50,22 +50,21 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
+    /// START
 
+    ll h, m;
+    cin >> h >> m;
 
-    ll t;
-    cin >> t;
+    double a = m * 0.5;
+    double b = (h % 12) * 30;
 
-    while(t--){
+    double y = m * 6;
+    double x = a + b;
 
-        string s;
-        cin >> s;
+    double z = abs(x - y);
+    z = min(z, 360 - z);
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
-
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
-    }
-
+    cout << fixed << setprecision(7) << z << endl;
 
 
     return 0;

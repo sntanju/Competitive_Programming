@@ -50,20 +50,53 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-
+    /// START
 
     ll t;
     cin >> t;
 
-    while(t--){
+    while(t--) {
 
         string s;
         cin >> s;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        ll x = s[0] - '0', y = s[1] - '0';
+        ll num = (x * 10) + y;
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+
+        if(s[0] == '0' && s[1] == '0') {
+            cout << "12:" << s[3] << s[4] << " AM" << endl;
+        }
+
+        else if(num < 12) {
+            cout << s << " AM" << endl;
+        }
+
+        else{
+
+            num = num - 12;
+            string temp = to_string(num);
+           // cout << num << "    " << temp << endl;
+
+            if((s[0] == '1' && s[1] == '2')) {
+                 cout << "12:" << s[3] << s[4] << " PM" << endl;
+            }
+
+            else if(temp.size() == 2) {
+                //s[0] == temp[0];
+               // s[1] == temp[1];
+
+               cout << temp << ":" << s[3] << s[4] << " PM" << endl;
+            }
+            else {
+                //s[0] == '0';
+                //s[1] == temp[0];
+
+                cout << '0' << temp << ":" << s[3] << s[4] << " PM" << endl;
+            }
+           // cout << s << " PM" << endl;
+        }
+
     }
 
 

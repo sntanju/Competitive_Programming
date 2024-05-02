@@ -1,4 +1,4 @@
-///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
+///   ***   ---   ||         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -46,27 +46,43 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+const ll mx = 1e4+123;
+ll a[mx];
 
 int main()
 {
     optimize();
-
+    /// START
 
     ll t;
     cin >> t;
 
-    while(t--){
+    ll r = 1e4;
+    for(ll i = 1; i <= r; i++) a[i] = i * i * i;
 
-        string s;
-        cin >> s;
+    while(t--) {
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        ll n;
+        cin >> n;
+        bool ans = false;
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        for(ll b = 1; b <= r; b++) {
+
+            ll x = n - (b * b * b);
+            if(x < 1) break;
+
+            bool isExists = binary_search(a+1, a+r, x);
+            if(isExists) {
+
+                ans = true;
+                break;
+            }
+        }
+
+        if ( ans == true ) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-
-
 
     return 0;
 }
+

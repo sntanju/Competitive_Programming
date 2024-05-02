@@ -51,19 +51,36 @@ int main()
 {
     optimize();
 
-
     ll t;
     cin >> t;
 
     while(t--){
 
-        string s;
-        cin >> s;
+        ll n;
+        cin >> n;
+        ll ara[n];
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        for(ll i = 0; i < n; i++) cin >> ara[i];
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        ll cnt = 0, cnt2 = 0;
+
+        for(ll i = 0; i < n; i++){
+            if(ara[i] == 1) {
+                cnt = i;
+                break;
+            }
+
+        }
+
+        for(ll i = n - 1; i >= 0; i--){
+            if(ara[i] == 1) {
+                cnt2 = i;
+                break;
+            }
+        }
+
+        ll ans = count(ara + cnt, ara + cnt2, 0);
+        cout << ans << endl;
     }
 
 

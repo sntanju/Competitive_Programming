@@ -51,22 +51,35 @@ int main()
 {
     optimize();
 
-
     ll t;
     cin >> t;
 
     while(t--){
+        ll a;
+        cin >> a;
 
         string s;
         cin >> s;
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        ll cnt = 0;
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        for(ll i = 0; i < a - 2; i++) {
+            if(s[i] == 'm') {
+                if(s[i + 1] == 'a' && s[i + 2] == 'p') {
+                    i+=2;
+                    cnt++;
+                }
+            }
+
+            else if(s[i] == 'p') {
+                if(s[i + 1] == 'i' && s[i + 2] == 'e') {
+                    i+=2;
+                    cnt++;
+                }
+            }
+        }
+        cout << cnt << endl;
     }
-
-
 
     return 0;
 }

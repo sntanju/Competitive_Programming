@@ -51,19 +51,27 @@ int main()
 {
     optimize();
 
-
     ll t;
     cin >> t;
-
     while(t--){
+        vector<ll> v, v2;
 
-        string s;
-        cin >> s;
+        for(ll i = 0; i < 4; i++){
+            ll a, b;
+            cin >> a >> b;
+            v.push_back(a);
+            v2.push_back(b);
+        }
 
-        ll a = count(s.begin(), s.end(), 'A'), b = count(s.begin(), s.end(), 'B');
+        ll ans = 0;
+        for(ll i = 1; i < 4; i++){
+            if(v[i] == v[0]){
+                ans = abs(v2[i] - v2[0]);
+            }
+        }
 
-        if(a > b) cout << "A" << endl;
-        else cout << "B" << endl;
+        ans *= ans;
+        cout << ans << endl;
     }
 
 

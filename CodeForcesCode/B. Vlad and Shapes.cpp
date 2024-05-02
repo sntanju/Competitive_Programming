@@ -55,6 +55,7 @@ int main()
     cin>> t;
 
     while(t--){
+
         ll n;
         cin >> n;
         vector<ll> v;
@@ -65,15 +66,10 @@ int main()
             cin >> s;
 
             ll temp = count(s.begin(), s.end(), '1');
-            //cout << temp << endl;
             if(temp > 0)
             v.push_back(temp);
 
        }
-
-       //ll temp = v.size();
-       //sort(v.begin(), v.end());
-       //v.erase(unique(v.begin(), v.end()), v.end());
 
        if(v[0] != v[1]) cout << "TRIANGLE" << endl;
        else cout << "SQUARE" << endl;
