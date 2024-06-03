@@ -46,11 +46,25 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+const int mx = 1e6+123;
+ll a[mx];
+
+bool calc(ll val, ll n)
+{
+    ll score = val;
+    for(ll i = 1; i <= n; i++) {
+
+        score += a[i];
+        if(score <= 0) return false;
+    }
+
+    return true;
+}
 
 int main()
 {
     optimize();
-    /// STARt
+    /// START
 
     ll t;
     cin >> t;
@@ -60,30 +74,22 @@ int main()
         ll n;
         cin >> n;
 
-        if(n < 10) cout << n << endl;
-        else {
+        for(ll i = 1; i <= n; i++) cin >> a[i];
+        ll l = 0, r = 1e14, ans = r;
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        while(l <= r) {
 
-            for(ll i = 9 ; i > 0; i--) {
+            ll mid = (l + r) / 2;
+            if(calc(mid, n)) {
 
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
+                ans = mid;
+                r = mid - 1;
             }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
+            else l = mid + 1;
         }
+
+        cout << ans << endl;
     }
-
-
 
     return 0;
 }

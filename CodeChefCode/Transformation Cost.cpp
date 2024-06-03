@@ -47,43 +47,57 @@ ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
 
-int main()
-{
+#define int long long int
+#define vi vector<int>
+#define read(a) for(auto &i: a) cin>>i
+#define mod 1000000007
+
+
+signed main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     optimize();
-    /// STARt
 
     ll t;
     cin >> t;
 
-    while(t--) {
+    while(t--){
 
         ll n;
         cin >> n;
 
-        if(n < 10) cout << n << endl;
-        else {
+        ll cnt = 0;
+        ll pos = 0;
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        for(ll i = 31; i >= 0; i--){
 
-            for(ll i = 9 ; i > 0; i--) {
-
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
+           if(n & (1LL << i)){
+                if(pos == 0) pos = i;
+                if(cnt == 0 or cnt == 2) cnt++;
+           }
+           else if(cnt == 1) cnt = 2;
         }
+        if(cnt != 3){
+            cout << 0 << endl;
+            continue;
+        }
+
+        ll curnum = 0;
+        ll ans = 1e18;
+
+        for(ll i = pos; i >= 0; i--){
+            curnum = curnum + pow(2, i);
+
+            if(curnum < n) continue;
+            ans = min(ans, curnum - n);
+        }
+        cout << ans << endl;
+
     }
-
-
 
     return 0;
 }
+
+

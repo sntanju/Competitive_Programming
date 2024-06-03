@@ -1,4 +1,5 @@
-///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
+
+///   ***   ---   ||         In the name of ALLAH        |||   ---   ***   ///
 
 
 
@@ -30,7 +31,7 @@ const double PI = acos(-1);
 const double eps = 1e-9;
 const int inf = 2000000000;
 const ll infLL = 9000000000000000000;
-#define MOD 1000000007
+#define MOD 10000007
 
 #define mem(a,b) memset(a, b, sizeof(a) )
 #define sqr(a) ((a) * (a))
@@ -46,44 +47,43 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+ll dp[10123];
+ll a, b, c, d, e, f;
+
+ll fib (ll n )
+{
+    if(n == 0) return a;
+    if(n == 1) return b;
+
+    if(n == 2) return c;
+    if(n == 3) return d;
+
+    if(n == 4) return e;
+    if(n == 5) return f;
+
+    if(dp[n] != -1) return dp[n];
+    ll res = ((fib ( n-1 ) % MOD) + (fib (n-2) % MOD) + (fib (n-3) % MOD) + (fib (n-4)% MOD) + (fib(n-5)% MOD) + (fib (n-6)% MOD)) % MOD;
+
+    dp[n] = res;
+    return dp[n];
+}
 
 int main()
 {
     optimize();
-    /// STARt
+    /// START
 
-    ll t;
+    int t;
     cin >> t;
 
-    while(t--) {
+    for(ll tc = 1; tc <= t; tc++ ) {
 
+        mem(dp, -1);
         ll n;
-        cin >> n;
 
-        if(n < 10) cout << n << endl;
-        else {
-
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-            for(ll i = 9 ; i > 0; i--) {
-
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
-        }
+        cin >> a >> b >> c >> d >> e >> f >> n;
+        cout << "Case " << tc << ": " << fib(n) % MOD << endl;
     }
-
-
 
     return 0;
 }

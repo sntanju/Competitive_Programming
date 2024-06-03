@@ -46,44 +46,45 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+ll calc(ll n)
+{
+    return (n * (n + 1)) / 2;
+}
 
 int main()
 {
     optimize();
-    /// STARt
+    /// START
 
     ll t;
     cin >> t;
 
     while(t--) {
 
-        ll n;
-        cin >> n;
+        ll x;
+        cin >> x;
 
-        if(n < 10) cout << n << endl;
-        else {
+        ll ans = -1;
+        ll l = 1, r = 1e6;
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        while(l <= r) {
 
-            for(ll i = 9 ; i > 0; i--) {
+            ll mid = (l + r) / 2;
+            if(calc(mid) == x) {
 
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
+                ans = mid;
+                break;
             }
 
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
+            if(calc(mid) < x) {
+                l = mid + 1;
+            }
+            else r = mid - 1;
         }
+
+        if(ans == -1) cout << "NAI" << endl;
+        else cout << ans << endl;
     }
-
-
 
     return 0;
 }

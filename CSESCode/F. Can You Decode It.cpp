@@ -47,43 +47,54 @@ ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
 
-int main()
-{
+int main() {
+
     optimize();
-    /// STARt
 
-    ll t;
-    cin >> t;
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
 
-    while(t--) {
+    char c;
+    cin >> c;
+   // cin.ignore();
 
-        ll n;
-        cin >> n;
+    string s;
+    getline(cin, s);
 
-        if(n < 10) cout << n << endl;
+    if (c == ' ') cout << ' ';
+    else if (!isalpha(c)) cout << c;
+
+    else if (isupper(c)) {
+        ll x = c - 'A' - 2;
+        x = (x + 26) % 26;
+        cout << char('A' + x);
+    }
+    else {
+        ll x = c - 'a' - 2;
+        x = (x + 26) % 26;
+        cout << char('a' + x);
+    }
+
+    for (char ch : s) {
+
+        if (ch == ' ') cout << ' ';
+        else if (!isalpha(ch)) cout << ch;
+
+        else if (isupper(ch)) {
+            ll x = ch - 'A' - 2;
+            x = (x + 26) % 26;
+            cout << char('A' + x);
+
+        }
         else {
-
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-            for(ll i = 9 ; i > 0; i--) {
-
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
+            ll x = ch - 'a' - 2;
+            x = (x + 26) % 26;
+            cout << char('a' + x);
         }
     }
 
-
+    cout << endl;
 
     return 0;
 }

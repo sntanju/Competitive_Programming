@@ -50,39 +50,29 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// STARt
+    /// START
 
-    ll t;
-    cin >> t;
+    ll n;
+    cin >> n;
 
-    while(t--) {
+    vector<ll> v(n), v2(n);
+    bool flag = false;
 
-        ll n;
-        cin >> n;
+    for(ll i = 0; i < n; i++) {
 
-        if(n < 10) cout << n << endl;
-        else {
+        cin >> v[i] >> v2[i];
+        if(v[i] != v2[i]) flag = true;
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-            for(ll i = 9 ; i > 0; i--) {
-
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
-        }
     }
 
+    if(flag == true) cout << "rated" << endl;
+    else  {
+
+        reverse(v.begin(), v.end());
+
+        if(is_sorted(v.begin(), v.end())) cout << "maybe" << endl;
+        else cout << "unrated" << endl;
+    }
 
 
     return 0;

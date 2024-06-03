@@ -50,40 +50,28 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// STARt
+    /// START
 
     ll t;
     cin >> t;
 
-    while(t--) {
+    while(t--){
 
-        ll n;
-        cin >> n;
+       // char s[1000] = {'0'};
+        //gets(s);
 
-        if(n < 10) cout << n << endl;
-        else {
+        //ll n = sizeof(s) / sizeof(s[0]);
+        string s;
+        getline(cin,s);
+        cout << s << endl;
+        ll cnt = 0;
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-            for(ll i = 9 ; i > 0; i--) {
-
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
+        for(ll i = 0; i < s.size(); i++){
+            if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') cnt++;
         }
+
+        cout << "Number of vowels = " << cnt << endl;
     }
-
-
 
     return 0;
 }

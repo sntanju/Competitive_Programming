@@ -47,43 +47,46 @@ ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
 
-int main()
-{
+#define int long long int
+#define vi vector<int>
+#define read(a) for(auto &i: a) cin>>i
+#define mod 1000000007
+
+
+signed main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     optimize();
-    /// STARt
 
     ll t;
     cin >> t;
 
-    while(t--) {
+        while(t--){
 
-        ll n;
-        cin >> n;
+          ll n, m, x, y, l;
+          cin >> n >> m >> x >> y >> l;
 
-        if(n < 10) cout << n << endl;
-        else {
+          ll ans = 1;
+          ll row = 1;
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+          ll right = m - y;
+          right = right / l;
 
-            for(ll i = 9 ; i > 0; i--) {
+          row = row + right;
+          ll left = y - 1;
 
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
+          left = left / l;
+          row = row + left;
 
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
+          int col = 1 + (n - x) / l + (x - 1) / l;
+          ans = row * col;
+
+          cout << ans << endl;
 
         }
-    }
-
-
 
     return 0;
 }
+

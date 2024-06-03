@@ -50,40 +50,26 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// STARt
+    /// START
 
-    ll t;
-    cin >> t;
+    string s;
+	cin >> s;
 
-    while(t--) {
+	string ans = "No";
 
-        ll n;
-        cin >> n;
+	for(ll i = 0; i < s.size() - 2; i++) {
 
-        if(n < 10) cout << n << endl;
-        else {
+		if(s[0 + 1] == NULL) break;
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		if(s[i] != s[i + 1] && s[i + 1] != s[i + 2] && s[i] != s[i + 2] && s[i] != '.' && s[i + 1] != '.' && s[i + 2] != '.') {
 
-            for(ll i = 9 ; i > 0; i--) {
+			ans = "Yes";
+			break;
+	    }
 
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
+	}
 
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
-        }
-    }
-
-
+	cout << ans << endl;
 
     return 0;
 }

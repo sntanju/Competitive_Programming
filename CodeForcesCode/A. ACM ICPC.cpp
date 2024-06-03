@@ -50,40 +50,27 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// STARt
+    /// START
 
-    ll t;
-    cin >> t;
+    ll a, b, c, d, e, f;
+    cin >> a >> b >> c >> d >> e >> f;
 
-    while(t--) {
+    if(a + b + c == d + e + f) cout << "YES" << endl;
+    else if(a + b + d == c + e + f) cout << "YES" << endl;
 
-        ll n;
-        cin >> n;
+    else if(a + b + e == d + c + f) cout << "YES" << endl;
+    else if(a + b + f == d + e + c) cout << "YES" << endl;
 
-        if(n < 10) cout << n << endl;
-        else {
+    else if(a + d + c == b + e + f) cout << "YES" << endl;
+    else if(a + e + c == d + b + f) cout << "YES" << endl;
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    else if(a + f + c == d + e + b) cout << "YES" << endl;
+    else if(a + d + e == b + c + f) cout << "YES" << endl;
 
-            for(ll i = 9 ; i > 0; i--) {
+    else if(a + d + f == b + e + c) cout << "YES" << endl;
+    else if(a + e + f == d + b + c) cout << "YES" << endl;
 
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
-        }
-    }
-
-
+    else cout << "NO" << endl;
 
     return 0;
 }

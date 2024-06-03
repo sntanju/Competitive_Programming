@@ -50,7 +50,7 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// STARt
+    /// START
 
     ll t;
     cin >> t;
@@ -60,29 +60,41 @@ int main()
         ll n;
         cin >> n;
 
-        if(n < 10) cout << n << endl;
-        else {
+        string s;
+        cin >> s;
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        vector<char> v, v2;
+        string ans = "YES";
 
-            for(ll i = 9 ; i > 0; i--) {
+        for(ll i = 0; i < s.size(); i++) {
 
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
+            if(isdigit(s[i])) v.push_back(s[i]);
+            else if(isalpha(s[i])) v2.push_back(s[i]);
         }
-    }
 
+        for(ll i = 1; i < v.size(); i++) {
+            if(v[i] >= v[i - 1]) continue;
+            else ans = "NO";
+        }
+
+        for(ll i = 1; i < v2.size(); i++) {
+            if(v2[i] >= v2[i - 1]) continue;
+            else ans = "NO";
+        }
+
+        for(ll i = 0; i < n; i++) {
+            if(isalpha(s[i])) {
+                for(ll j = i + 1; j < n; j++) {
+                    if(isdigit(s[j])) {
+                        ans = "NO";
+                        break;
+                    }
+                }
+            }
+        }
+
+        cout << ans << endl;
+    }
 
 
     return 0;

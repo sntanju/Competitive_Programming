@@ -50,7 +50,7 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// STARt
+    /// START
 
     ll t;
     cin >> t;
@@ -60,29 +60,13 @@ int main()
         ll n;
         cin >> n;
 
-        if(n < 10) cout << n << endl;
+        if(n == 3) cout << -1 << endl;
         else {
 
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-            for(ll i = 9 ; i > 0; i--) {
-
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
+            for(ll i = 3; i <= n; i++) cout << i << " ";
+            cout << 2 << " " << 1 << endl;
         }
     }
-
 
 
     return 0;

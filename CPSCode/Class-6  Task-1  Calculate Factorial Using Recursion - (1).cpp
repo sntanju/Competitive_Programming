@@ -46,11 +46,19 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+ll recurse(ll n)
+{
+
+    if(n == 0) return 1;
+    return n * recurse(n - 1);
+
+}
+
 
 int main()
 {
     optimize();
-    /// STARt
+    /// Start
 
     ll t;
     cin >> t;
@@ -59,31 +67,8 @@ int main()
 
         ll n;
         cin >> n;
-
-        if(n < 10) cout << n << endl;
-        else {
-
-            vector<ll> v;
-            vector<ll> v2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
-            for(ll i = 9 ; i > 0; i--) {
-
-                if(n <= i) {
-                    v.push_back(n);
-                    break;
-                }
-                v.push_back(i);
-                n -= i;
-            }
-
-            /// v.push_back(n);
-            for(ll i = v.size() - 1; i >= 0; i--) cout << v[i];
-            cout << endl;
-
-        }
+        cout << recurse(n) << endl;
     }
-
-
 
     return 0;
 }
