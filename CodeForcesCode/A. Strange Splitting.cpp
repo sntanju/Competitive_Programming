@@ -1,7 +1,10 @@
 ///   ***   ---            In the name of ALLAH        |||   ---   ***   ///
 
+
+
 #include<bits/stdc++.h>
 using namespace std;
+
 
 typedef long long ll;
 typedef vector<int> vi;
@@ -34,50 +37,44 @@ const ll infLL = 9000000000000000000;
 
 #define optimize() ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 #define fraction() cout.unsetf(ios::floatfield); cout.precision(10); cout.setf(ios::fixed,ios::floatfield);
+#define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 
-ll gcd (ll a, ll b) { return __gcd(a, b); }
-ll lcm (ll a, ll b) { return a * (b / gcd(a, b)); }
+#define dbg(args...) do {cerr << #args << " : "; faltu(args); } while(0)
+void faltu () {            cerr << endl;}
+template < typename T, typename ... hello>void faltu( T arg, const hello &... rest) {cerr << arg << ' ';faltu(rest...);}
 
-int main() {
+ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
+ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
+
+
+int main()
+{
     optimize();
     /// START
 
     ll t;
     cin >> t;
 
-    while (t--) {
+    while(t--) {
 
         ll n;
         cin >> n;
 
-        vector<ll> v(n), v2(n + 1);
-
+        vector<ll> v(n);
         for(ll i = 0; i < n; i++) cin >> v[i];
-        for(ll i = 0; i < n + 1; i++) cin >> v2[i];
 
-        ll sum = 0;
-        ll last = v2.back();
-
-        bool flag = false;
-        ll mx = INT_MAX;
-
-        for(ll i = 0; i < n; i++){
-
-            ll diff = abs(v[i] - v2[i]);
-            sum += diff;
-
-            if(v[i] <= last && last <= v2[i]) flag = true;
-            if(v2[i] <= last && last <= v[i]) flag = true;
-
-            mx = min(mx, abs(v[i] - last));
-            mx = min(mx, abs(v2[i] - last));
-
+        if(v[n - 1] - v[0] == 0){
+            cout << "NO" << endl;
+            continue;
         }
 
-        if(flag) sum += 1;
-        else sum += mx + 1;
+        cout << "YES" << endl;
+        for(ll i = 0; i < n; i++) {
 
-        cout << sum << endl;
+            if(i == 1) cout << "B";
+            else cout << "R";
+        }
+        cout << endl;
     }
 
     return 0;

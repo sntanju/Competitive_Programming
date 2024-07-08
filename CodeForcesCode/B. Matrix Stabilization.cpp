@@ -57,21 +57,44 @@ int main()
 
     while(t--) {
 
-        ll a, b;
-        cin >> a >> b;
-        vector<ll> v(a), v2(b);
+        ll n, m;
+        cin >> n >> m;
 
-        for(ll i = 0; i < a; i++) cin >> v[i];
-        for(ll i = 0; i < b; i++) {
+        ll arr[n][m];
+        for(ll i = 0; i < n; i++) {
 
-            cin >> v2[i];
-            cout << min(v[0] - 1, v2[i]) << " ";
+            for(ll j = 0; j < m; j++) {
+                cin >> arr[i][j];
+            }
         }
 
-        cout << endl;
+        for(ll i = 0; i < n; i++) {
+            for(ll j = 0; j < m; j++) {
+
+               ll x = 0, y = 1;
+
+               if((i - 1) >= 0) x = max(x, arr[i - 1][j]);
+               if((j - 1) >= 0) x = max(x, arr[i][j - 1]);
+
+               if((i + 1) < n) x = max(x, arr[i + 1][j]);
+               if((j + 1) < m) x = max(x, arr[i][j + 1]);
+
+
+               if((i - 1) >= 0 && arr[i][j] <= arr[i - 1][j]) y = 0;
+               if((j - 1) >= 0 && arr[i][j] <= arr[i][j - 1]) y = 0;
+               if((i + 1) < n && arr[i][j] <= arr[i + 1][j]) y = 0;
+               if((j + 1) < m && arr[i][j] <= arr[i][j + 1]) y = 0;
+
+               if(y == 0) arr[i][j] = x;
+            }
+        }
+
+        for(ll i = 0; i < n; i++) {
+            for(ll j = 0; j < m; j++)cout << arr[i][j] << " ";
+            cout << endl;
+        }
+
     }
-
-
 
     return 0;
 }
