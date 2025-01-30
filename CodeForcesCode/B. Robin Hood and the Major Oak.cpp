@@ -46,6 +46,7 @@ template < typename T, typename ... hello>void faltu( T arg, const hello &... re
 ll gcd ( ll a, ll b ) { return __gcd ( a, b ); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
+
 int main()
 {
     optimize();
@@ -56,21 +57,11 @@ int main()
 
     while(t--) {
 
-        ll k;
-		cin >> k;
+        ll n, k;
+        cin >> n >> k;
 
-		ll a[k];
-		for(ll i = 0; i < k; i++) cin >> a[i];
-
-		sort(a, a + k);
-		ll l = 0, r = k - 1;
-
-		while(a[l] * a[r] != k - 2) {
-			if(a[l] * a[r] > k - 2) r--;
-			else l++;
-		}
-		cout << a[l] << ' ' << a[r] << endl;
+        if(((n + 1) * n / 2 - (n - k) * (n - k + 1) / 2) % 2) cout << "NO" << endl;
+        else cout << "YES" << endl;
     }
-
     return 0;
 }
