@@ -50,22 +50,6 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
-    /// START
-
-    ll t;
-    cin >> t;
-
-    while(t--) {
-
-        string s;
-        cin >> s;
-
-        s.pop_back();
-        s.pop_back();
-        s += 'i';
-
-        cout << s << endl;
-    }
 
 
 
