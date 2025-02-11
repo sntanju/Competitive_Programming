@@ -50,8 +50,21 @@ ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 int main()
 {
     optimize();
+    /// START
 
+    ll t;
+    cin >> t;
 
+    while(t--) {
+
+        string s;
+        cin >> s;
+
+        ll ans = s.size();
+        for(ll i = 0; i < s.size() - 1; i++) if(s[i] == s[i + 1]) ans = 1;
+
+        cout << ans << endl;
+    }
 
     return 0;
 }
