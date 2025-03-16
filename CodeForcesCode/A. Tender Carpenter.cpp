@@ -64,7 +64,7 @@ int main()
         for(ll i = 0; i < n; i++) cin >> v[i];
 
         string ans = "NO";
-        for(ll i = 0; i < n; i++) {
+        for(ll i = 0; i < n - 1; i++) {
 
             if(2 * min(v[i], v[i + 1]) > max(v[i], v[i + 1])) {
                 ans = "YES";
