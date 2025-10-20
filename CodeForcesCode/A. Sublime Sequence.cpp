@@ -68,9 +68,5 @@ int main() {
         if(n % 2 == 0) cout << 0 << endl;
         else cout << x << endl;
     }
-
-    //"cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-
-
     return 0;
 }

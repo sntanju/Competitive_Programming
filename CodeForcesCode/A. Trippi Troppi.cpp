@@ -49,6 +49,7 @@ const ll infLL = 9000000000000000000;
 #define file() freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 
 #define dbg(args...) do {cerr << #args << " : "; faltu(args); } while(0)
+
 void faltu () { cerr << endl; }
 template < typename T, typename ... hello> void faltu( T arg, const hello &... rest) { cerr << arg << ' '; faltu(rest...); }
 
@@ -56,21 +57,18 @@ ll gcd ( ll a, ll b ) { return std::gcd(a, b); }
 ll lcm ( ll a, ll b ) { return a * ( b / gcd ( a, b ) ); }
 
 int main() {
-    optimize();
+    optimize();  
+    //file();
 
     int t;
     cin >> t;
 
     while(t--) {
-        int x, n;
-        cin >> x >> n;
+        string s, s2, s3;
+        cin >> s >> s2 >> s3;
 
-        if(n % 2 == 0) cout << 0 << endl;
-        else cout << x << endl;
+        cout << s[0] << s2[0] << s3[0] << endl;
     }
-
-    //"cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-
 
     return 0;
 }
