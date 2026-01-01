@@ -60,52 +60,15 @@ int main() {
 
     ll t;
     cin >> t;
-
+    
     while(t--) {
 
-    	ll a, b;
-    	cin >> a >> b;
+    	ll n;
+    	cin >> n;
 
-    	ll ans = 0, ans2 = 0, white = a, dark = b, size = 1;
-        bool isWhite = true;
+    	if(n % 2 == 1) cout << 0 << endl;
+    	else cout << (n / 4) + 1 << endl;
 
-        while(true) {
-            if(isWhite) {
-                if(white < size) break;
-                white -= size;
-            } 
-            else {
-                if(dark < size) break;
-                dark -= size;
-            }
-            ans++;
-            // cout << ans << endl;
-            size *= 2;
-            isWhite = !isWhite;
-        }
-
-      
-        white = a; dark = b, size = 1;
-        isWhite = false;
-
-        while(true) {
-            if(isWhite) {
-                if(white < size) break;
-                white -= size;
-            } else {
-                if(dark < size) break;
-                dark -= size;
-            }
-            ans2++;
-            // cout << ans2 << endl;
-            size *= 2;
-            isWhite = !isWhite;
-        }
-
-        int result = max(ans, ans2);
-        cout << result << endl;
-
-    	
     }
 
     return 0;
