@@ -1,2 +1,27 @@
-**/*.exe
-**/*.o
+# **/*.exe
+# **/*.o
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# CLion / JetBrains
+.idea/
+
+# Build folders
+build/
+bin/
+out/
+
+# Executables with no extension (common on Linux/macOS)
+*
+!*/
+!*.cpp
+!*.cc
+!*.c
+!*.h
+!*.hpp
+!*.md
+!*.txt
